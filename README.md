@@ -2,13 +2,13 @@
 
 ## Project overview
 
-This repository accompanies Mohamed Fradj's preprint **Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm**, v1.0.0. It studies the dimensions of prescribed graded windows motivated by the Appendix B construction in Anthropic's 3-SAT algorithm. The graded spaces arise from the vacuum and nonzero-coset characters of D4 and additive isotropic codes over the Klein four-group.
+This repository accompanies Mohamed Fradj's preprint **Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm**, scientific version **1.0**. The accompanying certificate software is version **1.0.0**. It studies the dimensions of prescribed graded windows motivated by the Appendix B construction in Anthropic's 3-SAT algorithm. The graded spaces arise from the vacuum and nonzero-coset characters of D4 and additive isotropic codes over the Klein four-group.
 
 The repository provides reproducible numerical evidence for the three sign conditions in Appendix A, exact checks of finite coefficient identities, and the data displayed in its interval table. The manuscript supplies the analytic arguments connecting these computations to the window bounds.
 
 ## Main mathematical result
 
-Fix a compact density interval $J=[x_1,x_2]\subset(0,\infty)$. Theorem 6.5 and the subsequent strict-margin remark give constants $\eta_J>0$ and $C_J>0$, depending only on $J$ and the fixed character alphabet, such that
+Fix a compact density interval $J=[x_1,x_2]\subset(0,\infty)$. Theorem 6.5 gives constants $\eta_J>0$ and $C_J>0$, depending only on $J$ and the fixed character alphabet, such that
 
 $$
 \rho_{\mathrm{win}}(V_S;h,\lambda)
@@ -17,7 +17,7 @@ $$
 
 The quantifiers are uniform over integers $m\geq1$, additive isotropic codes $S\subset(\mathbb F_2^2)^m$, admissible positive levels $h\in\frac12\mathbb Z$ with $h/m\in J$, and $\lambda\geq1$ satisfying $2^\lambda\leq\dim(V_S)_h$. The grading and the real windows are those defined in the manuscript. Admissibility means that the level is present. Smaller lengths are absorbed by enlarging $C_J$; the strict-margin argument first applies beyond a threshold depending on $J$. For integer-degree windows, use the even-weight subcode as described in the manuscript.
 
-The theorem states the uniform floor $1/\sqrt2-C_Jm^{-1/2}$; its strict-margin remark supplies the displayed strengthening on each fixed compact interval. The scripts do not compute an optimal value of $\eta_J$, and the estimate is not uniform as $h/m$ approaches zero or infinity.
+The theorem states the displayed strict fixed-density bound on each fixed compact interval. The scripts do not compute an optimal value of $\eta_J$, and the estimate is not uniform as $h/m$ approaches zero or infinity.
 
 This is a bound on the **cost of prescribed windows**. It does not establish a universal lower bound on intrinsic matrix or factorization ranks.
 
@@ -55,8 +55,8 @@ graded-window-barrier-certificates/
 │   ├── mpmath_iv_crosscheck.log
 │   └── interval_table.csv
 └── manuscript/
-    ├── Preprint_v1_0_0.tex
-    └── Preprint_v1_0_0.pdf
+    ├── Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.tex
+    └── Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.pdf
 ```
 
 | Script | Scientific role |
@@ -89,7 +89,7 @@ Install the pinned Python packages in [`requirements.txt`](requirements.txt). Th
 Clone the versioned source and run from its root:
 
 ```sh
-git -c core.autocrlf=false clone --branch v1.0.0 --depth 1 https://github.com/MFRADJ/graded-window-barrier-certificates.git
+git -c core.autocrlf=false clone --branch manuscript-v1.0 --depth 1 https://github.com/MFRADJ/graded-window-barrier-certificates.git
 cd graded-window-barrier-certificates
 ```
 
@@ -154,10 +154,12 @@ The Arb log reports approximately $R(\pi^2)=10.2925020821$, a largest box upper 
 
 ## Manuscript
 
-Read the [preprint PDF](manuscript/Preprint_v1_0_0.pdf) or its [LaTeX source](manuscript/Preprint_v1_0_0.tex). The PDF is compiled from this source. With [Tectonic](https://tectonic-typesetting.github.io/en-US/) 0.17.0 installed:
+The public manuscript is **v1.0** (13 November 2026). The filename and the version printed in the manuscript agree. The `manuscript-v1.0` tag records the synchronized manuscript and documentation; `v1.0.0` remains the original certificate-software tag. The assets attached to the software release include the current manuscript and an updated reproducibility archive.
+
+Read the [preprint PDF](manuscript/Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.pdf) or its [LaTeX source](manuscript/Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.tex). The PDF is compiled from this source. With [Tectonic](https://tectonic-typesetting.github.io/en-US/) 0.17.0 installed:
 
 ```sh
-tectonic --untrusted manuscript/Preprint_v1_0_0.tex
+tectonic --untrusted manuscript/Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.tex
 ```
 
 Tectonic obtains the required LaTeX packages on first use. A conventional LaTeX distribution with the packages declared in the source can also compile it; that alternative build has not been validated here. Rebuilding may change PDF metadata or typesetting-library output, so byte identity of rebuilt PDFs is not asserted. The distributed PDF's exact bytes are covered by the manifest.
@@ -170,7 +172,7 @@ This work neither proves nor refutes ETH, establishes a universal bound on intri
 
 Use [`CITATION.cff`](CITATION.cff) for machine-readable metadata. Cite the manuscript as:
 
-> Mohamed Fradj. *Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm*. v1.0.0, preprint, 2026.
+> Mohamed Fradj. *Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm*. v1.0, preprint, 2026.
 
 Cite the accompanying software as version **1.0.0**, *Graded-window barrier certificates*, Mohamed Fradj, at the [versioned release](https://github.com/MFRADJ/graded-window-barrier-certificates/releases/tag/v1.0.0). The [repository](https://github.com/MFRADJ/graded-window-barrier-certificates) contains the versioned sources. No manuscript or software DOI has been assigned.
 

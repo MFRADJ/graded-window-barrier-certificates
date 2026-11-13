@@ -22,6 +22,6 @@ preferred-citation:
     - family-names: Fradj
       given-names: Mohamed
   year: 2026
-  version: "1.0.0"
+  version: "1.0"
   notes: "Scientific preprint. Manuscript copyright: Mohamed Fradj, all rights reserved."
-  url: "https://github.com/MFRADJ/graded-window-barrier-certificates/blob/v1.0.0/manuscript/Preprint_v1_0_0.pdf"
+  url: "https://github.com/MFRADJ/graded-window-barrier-certificates/blob/manuscript-v1.0/manuscript/Fradj_Thermodynamic_Saturation_and_Window_Barriers_v1.0.pdf"
