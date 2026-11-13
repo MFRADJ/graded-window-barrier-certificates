@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this certificate software version."
+type: software
+title: "Graded-window barrier certificates"
+authors:
+  - family-names: Fradj
+    given-names: Mohamed
+version: 1.0.0
+date-released: 2026-11-13
+repository-code: "https://github.com/MFRADJ/graded-window-barrier-certificates"
+url: "https://github.com/MFRADJ/graded-window-barrier-certificates/releases/tag/v1.0.0"
+license: MIT
+keywords:
+  - interval arithmetic
+  - Arb
+  - graded spaces
+  - reproducibility

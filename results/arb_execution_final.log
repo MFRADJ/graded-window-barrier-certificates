@@ -1,0 +1,33 @@
+{
+  "command": "python certify_arb_independent.py",
+  "started_utc": "2026-11-13T19:31:42.932688+00:00",
+  "ended_utc": "2026-11-13T19:31:43.078829+00:00",
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "os": "Windows",
+    "architecture": "AMD64",
+    "python-flint": "0.9.0",
+    "FLINT": "3.6.0",
+    "Arb": "integrated into FLINT; no separate version exposed",
+    "mpmath": "1.3.0"
+  },
+  "source_sha256": {
+    "certify_arb_independent.py": "9c257642fb5d2fcda9566786937bd15dfe81c14ef7e187e1342b4cbd636c1606",
+    "supplement/series_exact.py": "8e95f2a288da3cbc4acda10e307139f600f3524e67205a15f924b3560caa0383",
+    "supplement/certify_mpmath_iv_crosscheck.py": "a222dda24190f46bbb2009805bfe6cf82b258b8a7ed32525bc67836d5c3e925e",
+    "supplement/regenerate_interval_table.py": "f48ebc0acdc15a0bc6d35fd6615bdaf8b9b1a483b98ac2a0cc16f5d8435330a5"
+  },
+  "exit_code": 0
+}
+
+STDOUT
+Arb Appendix A certificate: (0,4] / [4,5] / [5,infty)
+Precision: 256 bits; library: python-flint (Arb)
+Majorants at q0=e^-1: GA = [11048.0677988 +/- 1.46e-8], GC = [18215.1843800 +/- 4.28e-8], GP = [27143.5132117 +/- 2.10e-8]
+(a) R(pi^2) = [10.2925020821 +/- 2.30e-11] < 4pi^2/3 = [13.1594725348 +/- 1.42e-11] : True
+(b) [4,5], 10 boxes, bound (A.3): all < 0 : True ; largest upper endpoint: [-0.161844090586 +/- 3.53e-13]
+(c) lhs = [89.1622960952 +/- 4.57e-12] > rhs = [46.2244277249 +/- 2.77e-11]; margin [42.9378683703 +/- 3.23e-11]: True
+==> APPENDIX A: CERTIFIED
+
+STDERR
