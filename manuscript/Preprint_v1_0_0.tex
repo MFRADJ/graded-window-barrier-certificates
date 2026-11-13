@@ -1,0 +1,680 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,longtable}
+\usepackage[margin=24mm,headheight=15pt]{geometry}
+\usepackage{xurl}
+\usepackage{hyperref,xcolor,fancyhdr,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black,pdftitle={Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm},pdfauthor={Mohamed Fradj}}
+\definecolor{deep}{HTML}{17324F}\definecolor{soft}{HTML}{627487}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\footnotesize\textcolor{soft}{Thermodynamic saturation and window barriers}}\fancyhead[R]{\footnotesize\textcolor{soft}{M. Fradj}}\fancyfoot[C]{\small\thepage}
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlist[itemize]{topsep=2pt,itemsep=2pt,leftmargin=16pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt,leftmargin=16pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}\newtheorem{question}[theorem]{Question}
+\newcommand{\rhow}{\rho_{\mathrm{win}}}\newcommand{\F}{\mathbb F}\newcommand{\K}{\mathbb K}\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}\newcommand{\cB}{\mathcal L}\newcommand{\wt}{\mathrm{wt}}\newcommand{\dimn}{\operatorname{dim}}\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\dd}{\mathrm d}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries\color{deep} Thermodynamic saturation and window barriers}\\[2pt]
+{\Large\bfseries\color{deep} for graded spaces in a subexponential 3-SAT algorithm}\\[9pt]
+{\large Mohamed Fradj}\\[3pt]
+{\small Independent researcher, France}\\[4pt]
+{\small v1.0.0 --- Preprint, 10 November 2026}\\[4pt]
+{\footnotesize \textbf{2020 Mathematics Subject Classification:} Primary 05A17; Secondary 11F27, 68Q25.}
+\end{center}
+
+\begin{abstract}
+Motivated by Majdoddin's four-leg piece question for the subexponential 3-SAT algorithm of~\cite{claude3sat}, we study the cost $\rhow$ of prescribed graded windows rather than the intrinsic ranks of the factorization matrices. The central window $s=0$ reduces the barrier to the entropy-growth inequality $\rhow\ge D(2h)/(2\lambda)$, and a thermodynamic scaling criterion controls this ratio. For the graded spaces $V_S$ constructed from $D_4^m$ and an arbitrary isotropic additive Klein-four code $S$, we prove uniformly in the code that
+\[
+\rhow(V_S;h,\lambda)\ge\frac1{\sqrt2}-C_{x_1,x_2}m^{-1/2},
+\qquad x_1\le h/m\le x_2,\quad 2^\lambda\le\dimn(V_S)_h.
+\]
+The proof does not assume concavity or convergence of code weight distributions and uses a reproducible interval-sign test. This result constrains the specified window geometry at fixed density; it does not establish a bound on intrinsic factorization ranks, construct admissible operators, or cover the single-block high-density regime.
+\end{abstract}
+\tableofcontents
+\section{Introduction}
+\subsection{Background}
+Let $\lambda\ge1$. The crossing tensor is
+\begin{equation}\label{eq:cross}
+X_\lambda(x,y;u,v)=[x=v][y=u],\qquad x,y,u,v\in\{0,1\}^\lambda.
+\end{equation}
+The source algorithm \cite{claude3sat} represents a nonzero multiple of $X_\lambda$ by efficiently computable pieces with bounded row- and column-factorization bit costs. Its principal construction gives $\rho=11/12$; Appendix B gives the window-based value $\rho=1/\sqrt2$ on a polynomial ring whose weight-$E$ dimension is the partition number $p(E)$, classically governed at large weight by the Hardy--Ramanujan asymptotic~\cite{hardyramanujan}. The complexity exponent is $\alpha=\log_2(1/\rho)$ in the source model.
+\subsection{Main results and interpretation}
+\paragraph{Motivating question and restricted objective.}
+Majdoddin~\cite[Problem~1 and Section~4.7]{majdoddin} asks whether one can improve the factor $\rho=1/\sqrt2$ for four-leg piece families in the setting of the source algorithm. In the Appendix-B window geometry, the dimension profile $D(E)=\log_2\dimn V_{\le E}$ is a natural place to look for an improvement: a profile that grows rapidly up to the encoding scale $h$ but more slowly thereafter could, in principle, reduce the measured windows. The question addressed here is narrower: how far can \emph{prescribed window dimensions} be reduced in structured graded families? Even a positive answer for those dimensions would require separate algebraic identities, effective constructions, and intrinsic-rank estimates before it implied an improved piece family.
+
+\textbf{Dimension-profile background (Propositions~\ref{prop:profiles} and~\ref{prop:countermodel}).} The concave-profile and exact power-profile obstructions in the Appendix-B window geometry were already established by Majdoddin~\cite[Section~4.7, Proposition~4.24 and subsequent discussion]{majdoddin}. Section~\ref{sec:dimensions} records finite-size formulations and illustrates that dimension constraints alone permit $\rhow\to1/2$; these examples do not supply the required operators.
+
+\textbf{Thermodynamic criterion (Theorem~\ref{thm:tensor}).} If $\beta\mapsto\beta\log Z_B(\beta)$ is nonincreasing for a suitable block character, tensor powers of the block obey the fixed-density $1/\sqrt2$ window barrier.
+
+\textbf{Kleinian-code result (Theorem~\ref{thm:main}).} For every isotropic additive glue code, including non-concave and nonconvergent weight-distribution families, the same window barrier holds with uniform $O_{\mathcal J}(m^{-1/2})$ error.
+
+\paragraph{Central-window mechanism and entropy growth.}
+The proofs of Theorems~\ref{thm:tensor} and~\ref{thm:main} use a single window, namely the central piece $s=0$, for which both prescribed intermediate spaces are $V_{\le2h}$. Thus, writing $D(E)=\log_2\dimn V_{\le E}$,
+\begin{equation}\label{eq:central-mechanism}
+\rhow(V;h,\lambda)\ge\frac{D(2h)}{2\lambda}.
+\end{equation}
+In particular, the asymptotic threshold $\rhow\ge1/\sqrt2-o(1)$ follows whenever $D(2h)\ge\sqrt2\,\lambda-o(\lambda)$. The fixed-density theorems below obtain their stated finite-size errors by combining this central bound with a thermodynamic estimate of the growth of $\dimn V_{\le E}$. For a differentiable Gibbs character $Z(\beta)$ with mean energy $U$ and Gibbs entropy $\mathsf S$, the monotonicity condition $(\beta\log Z)'\le0$ is equivalent (when $\mathsf S>0$) to $\beta U/\mathsf S\ge1/2$: a lower bound on the logarithmic growth rate of entropy. Lemma~\ref{lem:scaling} gives the needed scaling estimate without assuming differentiability. Neither optimization over $s\ne0$ nor the rank constraint~\textup{(R)} is used to prove Theorems~\ref{thm:tensor} and~\ref{thm:main}; the latter constraint is used in the separate dimension-profile comparison in Section~\ref{sec:dimensions}.
+
+\subsection{Scope, related work and precedence}
+\paragraph{Relation to Majdoddin's open problem.}
+Problem~1 of~\cite{majdoddin} concerns the existence of actual four-leg pieces with a better factor, not merely a numerical graded dimension profile. His Section~4.7 shows that concave profiles cannot reach below $2/3-o(1)$ in the Appendix-B shape and that exact power profiles pay at least $1/\sqrt2$; a suitably kinked profile is a potential route below that value within the same window geometry. Proposition~\ref{prop:countermodel} shows that the elementary encoding and rank constraints alone do not forbid sharply changing dimension profiles, while Theorems~\ref{thm:tensor} and~\ref{thm:main} show why particular thermodynamically controlled families still cannot improve the \emph{window cost} asymptotically at fixed density. Thus the note offers a partial obstruction to one design route suggested by the open problem, not a solution of the problem itself.
+
+The numerical window cost is a property of a prescribed family of intermediate graded spaces. It is not the minimum of intrinsic ranks of the actual matrices; operators realising the required identities have not been constructed for these new $V_S$. We do not establish a new complexity upper or lower bound for SAT, or any resolution of ETH. A priori the constant $1/\sqrt2$ is a uniform floor, not the optimal fixed-density constant.
+
+\textbf{Primary-source comparison of the closest results (as of 10 November 2026).}
+We compare the published versions of Anthropic~\cite{claude3sat},
+Brito~\cite{brito}, Majdoddin~\cite{majdoddin}, and
+Tulsyan~\cite{tulsyan}, distinguishing window-dimension costs from
+intrinsic ranks. Appendix~H of~\cite{claude3sat} (final paragraph,
+``The count'') observes that, if the graded dimension grew as a power
+$E^\alpha$, the same window-counting calculation would give
+$\rho=2^{\alpha-1}$; it does not establish a power-profile lower bound
+or prove that $\alpha\ge1/2$. The same appendix separately notes an
+elementary rank floor for a sum of pieces, but does not combine it with
+the power-growth calculation into that obstruction. Brito's
+Theorem~2.2, Corollary~2.3 and Proposition~3.1 make the relevant
+rank-count obstruction explicit for graded pieces of the Appendix-B
+shape, and give the power-profile estimate
+$\max\{2^{\alpha-1},2^{-\alpha}\}\ge1/\sqrt2$; his Proposition~4.1
+also rules out a direct sparse-mode Heisenberg construction under its
+specified operator hypotheses. Majdoddin's Section~4.7 and
+Proposition~4.24 give the concave-profile bound $2/3-o(1)$ when
+$W,H\ge2h$, and the subsequent discussion treats exact power profiles
+and the need for a kinked dimension profile to beat $1/\sqrt2$ in that
+shape. These observations are not claimed as new here.
+
+The closest additional comparison is Tulsyan~\cite[Section~4.2,
+Theorem~4.3 and Proposition~4.4]{tulsyan}. His machine-checked
+spread lemma gives a lower bound from the extreme degrees in a
+\emph{graded two-order} slice; Proposition~4.4 deduces a
+$1/\sqrt2-o(1)$ barrier for ordinary Fock-space partition growth
+and for $C_2$-cofinite vertex operator algebras under its stated
+spread and pairing hypotheses. This overlaps the window-count
+mechanism of the present note, and makes a general claim of a new
+$1/\sqrt2$ graded barrier untenable. His result concerns the stated
+graded construction and certified intermediate dimensions, not a
+lower bound on every intrinsic piece rank.
+
+\begin{table}[htbp]
+\centering
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.45}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.21\linewidth}>{\raggedright\arraybackslash}p{.14\linewidth}>{\raggedright\arraybackslash}p{.14\linewidth}>{\raggedright\arraybackslash}p{.16\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Claim} & \textbf{Brito [2]} & \textbf{Majdoddin [3]} & \textbf{Tulsyan [4]} & \textbf{Present note} \\
+\midrule
+Rank and encoding floor & Thm. 2.2 & Prop. 4.6 & Thm. 4.2 (Lean) & Lemmas 2.3--2.4; prior \\
+Concave windows $\ge2/3$ & --- & Prop. 4.24 & Cites [3] & Prop. 3.1(1); prior \\
+Power profiles $\ge1/\sqrt2$ & Prop. 3.1 & After Prop. 4.24 & Prop. 4.4 cites [2,3] & Prop. 3.1(3); related \\
+General graded two-order costs & Rank count & App.-B windows & Thm. 4.3 & Thm. \ref{thm:tensor}; overlap \\
+Uniform in $m,S$ at fixed $h/m$ & Not stated & Not stated & No uniform $m$ bound stated & Thm. \ref{thm:main}; priority open \\
+Kleinian code gluing without spectrum limit & Not explicit & Not explicit & Not explicit & Thm. \ref{thm:main}; implication open \\
+Intrinsic ranks / operators & Sparse Fock & Fermions & Operators not in Thm. 4.3 & Not established \\
+\bottomrule
+\end{tabularx}
+\endgroup
+\caption{Comparison of closely related statements in the cited versions. ``Not stated'' does not prove non-implication or novelty.}\label{tab:precedence}
+\end{table}
+
+\textbf{Quantifier and implication caution.} For a \emph{fixed} graded
+algebra, a high-energy estimate with an $o(1)$ error need not be
+uniform when the algebra itself varies with $m$. In particular, the
+$C_2$-cofinite statement in~\cite[Proposition~4.4]{tulsyan} does
+not, as stated, supply the constant $C(x_1,x_2)$ independent of
+$m$, of the isotropic code $S\subset\K^m$, and of its varying
+weight spectrum in Theorem~\ref{thm:main}. Conversely, a uniform
+family conclusion might still be deducible by combining a spread
+inequality with further code-specific estimates. We have not
+proved logical non-implication or absolute novelty. The distinct
+assertion actually demonstrated in this manuscript is the
+sectorwise, code-uniform fixed-density estimate
+$\rhow(V_S;h,\lambda)\ge1/\sqrt2-C_{[x_1,x_2]}m^{-1/2}$,
+subject to the precise assumptions of Theorem~\ref{thm:main}.
+No corresponding operators or cheaper intrinsic-rank exclusion
+follow. Classical ingredients used below include code weight
+enumerators and lattice/VOA characters~\cite{hoehn,calderbank,conwaysloane},
+theta modular transformations~\cite{apostol}, and
+thermodynamics and large deviations~\cite{ellis,cardy,hks}.
+Dymarsky--Shapere~\cite{dymarsky} concerns stabilizer codes and
+Narain conformal-field-theory constructions rather than an
+identical Euclidean $D_4^m$ gluing theorem.
+
+\textbf{Regime warning.} Our uniform statements concern $h/m\in \mathcal J\Subset(0,\infty)$. The original single-block Appendix-B setting has $h\asymp\lambda^2$; the extension to $h/m\to\infty$ is open (Question~\ref{q:density}).
+
+\paragraph{Notation.} We write $\K=\F_2^2$ for the Klein group, but $\mathcal J=[x_1,x_2]\Subset(0,\infty)$ for a compact \emph{density interval}. Constants such as $C_{\mathcal J}$ are unrelated to the power series $\mathcal C(q)$ in Section~\ref{sec:codes}; $G_c(q)$ denotes the mode-multiplicity series in Section~\ref{sec:free}. The Legendre envelope is $\cB_M$, distinct from the letter character $B$; $\psi_{\Psi}=\log\Psi$ in Appendix~\ref{app:sign} is distinct from $\psi=\beta\varphi$ in Section~\ref{sec:thermal}. We use $\Delta_A=-A'$ in the sign certificate, $\delta$ for a gap parameter, $\delta_0$ for a profile error, and $\mathsf S$ for Gibbs entropy, distinct from a code $S$. The source's exponent $c$ is also distinct from the mode multiplicities $c_n$ and the Fourier coefficients $c_\nu$.
+
+\section{Window factorizations}\label{sec:windows}
+A graded space $V=\bigoplus_{E\in\Gamma}V_E$ has discrete $\Gamma\subset[0,\infty)$ and finite-dimensional components. Put
+\[
+V_{\le E}=\bigoplus_{e\le E}V_e,\quad D(E)=\log_2\dimn V_{\le E},\quad
+V_{[a,b]}=\bigoplus_{e\in[a,b]}V_e,\quad W[a,b]=\log_2\max\{1,\dimn V_{[a,b]}\}.
+\]
+\begin{definition}[Window cost]\label{def:windows}
+For $h>0$, $\lambda\ge1$ and $|s|\le2h$ set
+\[
+C_h(s)=W[s,s+2h]+W[-s,2h-s],\qquad
+\rhow(V;h,\lambda)=\frac1{4\lambda}\sup_{|s|\le2h}C_h(s).
+\]
+\end{definition}
+\paragraph{Exact dictionary with Anthropic.}
+In \cite[Appendix B, equations (54)--(56)]{claude3sat}, $V=\mathbb Q[t_1,t_2,\ldots]$ has integer weights, $\dimn V_E=p(E)$, and the $2^\lambda$ inputs are encoded by distinct monomials in weight $h$ (chosen as the least integer with $p(h)\ge2^\lambda$). The pieces are indexed by
+\(I=\{-2h,-2h+1,\ldots,2h\}\), including $s=0$. In Definition~\ref{def:windows} we allow real $s$, while the source uses integer $s$; we use logarithms of window dimensions, whereas the source takes the ceilings of the binary logarithms. We also allow any $\lambda$ satisfying the encoding condition, whereas the source chooses the \emph{least integer} $h$ for which $p(h)\ge2^\lambda$. These differences must be maintained when comparing costs; all arguments below use the full real window range and the stated grading. The row and column factorization dimensions of piece $s$ are, respectively,
+\[
+R_s^{\rm row}=\sum_{i=0}^{2h}p(s+i),\qquad
+R_s^{\rm col}=\sum_{i=0}^{2h}p(2h-s-i),
+\]
+where $p(j)=0$ for $j<0$, and their bit costs are the ceilings of the binary logarithms. In \cite[Definition~7]{claude3sat}, the parameters satisfy $1/2\le\rho<1$ and $c\ge1$ is an integer. The \emph{two-direction bit-budget condition} is specifically Definition~7(b):
+\begin{equation}\label{eq:def7}
+c_s^{\rm row}+c_s^{\rm col}\le4\rho\lambda+c\log(2\lambda).
+\end{equation}
+Separately, Definition~7(c) requires
+\[
+|I|\le(2\lambda)^c,
+\]
+and imposes magnitude bounds on the indices, coefficients and factorization data, together with effective-computability requirements. Definition~7(a) is the crossing-identity requirement. Thus \eqref{eq:def7} is only the bit-budget portion of the source definition, not a claim that a new graded space provides all admissible pieces. The $4\rho\lambda+8$ estimate in the source Lemma 2(c) concerns its main-text $\rho=11/12$ pieces and should \emph{not} replace Definition~7(b) in the Appendix-B comparison. The bound on $\rhow$ transfers to the specified window-cost form of \eqref{eq:def7}, with the logarithmic tolerance, in Corollary~\ref{cor:def7}. Our construction of graded spaces alone supplies no operators satisfying the source identities.
+
+A family of matrices $\{A_s\}_{s\in I}$ summing to $dX_\lambda$ ($d\ne0$) is a window factorization over $V$ when each row flattening factors through $V_{[s,s+2h]}$ and each column flattening through $V_{[-s,2h-s]}$.
+\begin{lemma}[Ranks versus windows]\label{lem:ranks-windows}
+For such a factorization,
+\[
+\rho_{\rm rank}:=\frac1{4\lambda}\max_s\bigl(\log_2\mathrm{rank}_{\rm row}A_s+\log_2\mathrm{rank}_{\rm col}A_s\bigr)\le\rhow.
+\]
+The reverse inequality need not hold.
+\end{lemma}
+\begin{proof}The rank of a factorization through an $N$-dimensional space is at most $N$.\end{proof}
+
+The source encoding gives the constraint
+\[2^\lambda\le\dimn V_h,\qquad \lambda\le D(h)\qquad\textup{(E)}\]
+\begin{lemma}[Rank floor]\label{lem:rankfloor}
+If $dX_\lambda$ is the sum of $|I|$ such pieces, then
+\[2\lambda\le D(4h)+\log_2|I|\qquad\textup{(R)}\]
+\end{lemma}
+\begin{proof}Put $N=2^\lambda$. The row-wise flattening separates $(x,y)$ from $(u,v)$, and the column-wise flattening separates $(x,u)$ from $(y,v)$. Since $X_\lambda(x,y;u,v)=[x=v][y=u]$, both are $N^2\times N^2$ permutation matrices and therefore have rank $N^2=2^{2\lambda}$. Rank subadditivity in the row-wise flattening gives $2^{2\lambda}\le\sum_s\mathrm{rank}_{\rm row}A_s$. For $s\in[-2h,2h]$, the stated row and column windows $[s,s+2h]$ and $[-s,2h-s]$ lie inside $[-2h,4h]$. Since the grading is nonnegative, each intermediate window has dimension at most $\dimn V_{\le4h}$. Thus $2^{2\lambda}\le|I|\dimn V_{\le4h}$. The column-wise flattening yields the analogous estimate.\end{proof}
+\begin{lemma}[Central window]\label{lem:central}
+The definition over the \emph{full} range $|s|\le2h$ gives
+\begin{equation}\label{eq:central}\rhow(V;h,\lambda)\ge\frac{D(2h)}{2\lambda}.\end{equation}
+Under (E) this implies $\rhow\ge D(2h)/(2D(h))$; under (R) it implies $\rhow\ge D(2h)/(D(4h)+\log_2|I|)$.
+\end{lemma}
+\begin{proof}At $s=0$ both windows are $V_{\le2h}$, so $C_h(0)=2D(2h)$.\end{proof}
+\paragraph{Role of the central piece.}
+Theorems~\ref{thm:tensor} and~\ref{thm:main} bound the prescribed window cost by estimating this one term of the supremum. Their arguments require the encoding inequality~\textup{(E)}, but not the separate rank floor~\textup{(R)}. In particular, \eqref{eq:central} gives no lower bound on the intrinsic ranks of the actual factorization matrices: by Lemma~\ref{lem:ranks-windows}, those ranks can be smaller than the intermediate-window dimensions.
+
+\section{Dimension-only bounds and their limits}\label{sec:dimensions}
+Set $\ell=\log_2|I|/\lambda$. In the original construction $|I|=4h+1$ and $\ell\to0$.
+\begin{proposition}[Profile bounds]\label{prop:profiles}
+Assume (E) and (R).
+\begin{enumerate}
+\item If $D(2h)\ge\tfrac23D(h)+\tfrac13D(4h)$ (in particular for a concave extension on $[h,4h]$), then $\rhow\ge\tfrac23-\ell/6$.
+\item If $\chi_h=D(2h)^2/(D(h)D(4h))$, then $\rhow\ge\sqrt{\chi_h/2}\sqrt{1-\ell/2}$.
+\item If $D(E)=cE^\alpha(1+\delta_E)$ for $E=h,2h,4h$, $|\delta_E|\le\delta_0<1$, then
+\[
+\rhow\ge\frac{1-\delta_0}{1+\delta_0}\max\{2^{\alpha-1},\;2^{-\alpha}(1-\ell/2)\}
+\ge\frac{1-\delta_0}{1+\delta_0}\sqrt{\frac{1-\ell/2}{2}}\qquad(0\le\ell<2).
+\]
+\end{enumerate}
+\end{proposition}
+\begin{proof}By (E) and (R), $D(h)\ge\lambda$ and $D(4h)\ge(2-\ell)\lambda$. Insert each hypothesis into Lemma~\ref{lem:central}. For (ii), $D(2h)^2=\chi_hD(h)D(4h)\ge\chi_h(2-\ell)\lambda^2$. For (iii), compare separately $D(2h)/D(h)$ and $D(2h)/D(4h)$. For $0\le\ell<2$, the product of the two branches $2^{\alpha-1}$ and $2^{-\alpha}(1-\ell/2)$ is $(1-\ell/2)/2$, so their maximum is at least $\sqrt{(1-\ell/2)/2}$. The exponent $\alpha=1/2$ minimizes the uncorrected ($\ell=0$) maximum. When $\ell\ge2$, the asserted positive square-root refinement is not used.\end{proof}
+\textbf{Attribution.} The concave-profile obstruction in part~(1) and the exact-power-profile obstruction underlying part~(3) are already present in Majdoddin~\cite[Section~4.7, Proposition~4.24 and subsequent discussion]{majdoddin}; see also Brito~\cite{brito} for power-profile rank bounds. The explicit $\ell=\log_2|I|/\lambda$ and $\delta_0$ terms are recorded here as elementary quantitative variants, without claiming priority. Part~(2) is likewise included as an elementary comparison rather than a novelty claim. The next proposition addresses dimension-only examples, not realizable operator identities.
+
+\begin{proposition}[Dimension-only countermodels]\label{prop:countermodel}
+\begin{enumerate}
+\item Let $\dimn V_0=1$, $\dimn V_h=2^\lambda$, $\dimn V_{4h}=2^{2\lambda}$, and all other components vanish. Then (E) and the numerical rank inequality (R) hold, but
+\[\rhow(V;h,\lambda)=\frac{\log_2(1+2^\lambda)}{2\lambda}=\frac12+O(2^{-\lambda}/\lambda).\]
+\item For a relaxed profile $D(E)=a+cE^p$ on $[h,4h]$ ($p>0$), $t=a/(ch^p)>-1$, the two constraints alone imply
+\[
+\rhow\ge(1-\ell/2)F_p(t),\qquad
+F_p(t)=\max\left\{\frac{t+2^p}{2(t+1)},\frac{t+2^p}{t+4^p}\right\}.
+\]
+The minimum over $t$ occurs at $t=4^p-2$, with value $\frac12+\frac{1}{2(2^p+1)}$, which tends to $1/2$ as $p\to\infty$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}For (i), windows with $|s|\le h$ contain at most $V_0\oplus V_h$ in each direction; at $s=0$ both attain that dimension, whereas at an endpoint $s=\pm2h$ one of the windows contains $V_{4h}$ and the other is the vacuum, giving cost $2\lambda$ in the numerator. The stated central cost dominates. For (ii) the first displayed branch decreases with $t$ and the second increases; equality gives $t=4^p-2$.\end{proof}
+These are numerical Hilbert-space witnesses: they do not supply the operators or computational certificates required by the source algorithm.
+
+\paragraph{Why impose thermodynamic structure?}
+The countermodels in Proposition~\ref{prop:countermodel} separate a dimension-profile possibility from an actual algebraic construction: the numerical constraints (E) and (R) alone leave room for a sharp change of growth. The next sections investigate more constrained families using partition functions and graded character identities. In particular, Kleinian glue codes allow weight distributions that need not be concave or convergent across the family; the sectorwise argument in Section~\ref{sec:codes} still yields the fixed-density window barrier. This is a statement about counted intermediate dimensions, not about the existence or optimality of operator factorization identities.
+
+\section{A thermodynamic saturation criterion}\label{sec:thermal}
+\subsection{Legendre envelopes and scaling}
+Let $M$ be graded, with character $Z_M(\beta)=\sum_E(\dimn M_E)e^{-\beta E}$ finite for $\beta>0$. For an arbitrary normalization $m\ge1$, define
+\begin{equation}\label{eq:legendre}
+\varphi_M(\beta)=\frac1m\log Z_M(\beta),\qquad
+\cB_M(y)=\inf_{\beta>0}\bigl[\varphi_M(\beta)+\beta y\bigr]\in[-\infty,\infty).
+\end{equation}
+The exponential generating-function (Chernoff) bound gives
+\begin{equation}\label{eq:chernoff}
+\log\dimn M_{\le my}\le m\cB_M(y).
+\end{equation}
+\begin{remark}[Gibbs entropy and logarithmic slope]\label{rem:entropy-slope}
+For a differentiable positive character $Z_M(\beta)$ define its mean energy and Gibbs entropy (in natural-log units) by
+\[
+U_M(\beta)=-\frac{\dd}{\dd\beta}\log Z_M(\beta),\qquad
+\mathsf S_M(\beta)=\log Z_M(\beta)+\beta U_M(\beta).
+\]
+A direct differentiation gives the identity
+\begin{equation}\label{eq:entropy-slope}
+\frac{\dd}{\dd\beta}\bigl[\beta\log Z_M(\beta)\bigr]
+=\mathsf S_M(\beta)-2\beta U_M(\beta).
+\end{equation}
+Consequently, for $\mathsf S_M(\beta)>0$, the monotonicity condition
+$(\beta\log Z_M)'\le0$ is \emph{equivalent} to
+$\beta U_M/\mathsf S_M\ge1/2$. If the Legendre infimum in~\eqref{eq:legendre} is attained smoothly at $\beta$ with $U_M(\beta)=my$ and $\cB_M(y)>0$, then
+\[
+m\cB_M(y)=\mathsf S_M(\beta),\qquad
+\frac{\dd\log\cB_M(y)}{\dd\log y}
+=\frac{y\cB'_M(y)}{\cB_M(y)}
+=\frac{\beta U_M(\beta)}{\mathsf S_M(\beta)}\ge\frac12.
+\]
+Thus the criterion bounds the logarithmic entropy-growth slope from below. Since $\varphi_M=m^{-1}\log Z_M$, its sign condition $(\beta\varphi_M)'\le0$ is the same. This is an interpretation under the stated differentiability and positivity assumptions, \emph{not} an extra hypothesis for the next scaling lemma, which requires neither differentiability nor a minimizing inverse temperature.
+\end{remark}
+\begin{lemma}[Scaling lemma]\label{lem:scaling}
+If $\psi(\beta):=\beta\varphi(\beta)$ is nonincreasing and $\cB(y)=\inf_{\beta>0}[\varphi(\beta)+\beta y]$, then for $c\ge1$ and $y\in\R$,
+\begin{equation}\label{eq:scaling}\cB(cy)\ge\sqrt c\,\cB(y).\end{equation}
+This includes extended-real infima.
+\end{lemma}
+\begin{proof}Set $\beta=\gamma/\sqrt c$. Then
+\[
+\cB(cy)=\sqrt c\inf_{\gamma>0}\left[\frac{\psi(\gamma/\sqrt c)}\gamma+\gamma y\right]
+\ge\sqrt c\inf_{\gamma>0}\left[\frac{\psi(\gamma)}\gamma+\gamma y\right]=\sqrt c\,\cB(y).
+\]\end{proof}
+
+\subsection{Product sectors and a finite-length estimate}
+\begin{definition}[Block alphabet and sector]
+A block alphabet is a finite family $\mathcal A=(Z^{(1)},\ldots,Z^{(r)})$ of characters having nonnegative integral coefficients, finite values for $\beta>0$, infinitely many nonzero coefficients, and lowest energies $g_j\ge0$. A product sector $M$ of length $m$ has character
+\[
+Z_M(\beta)=a_M\prod_{i=1}^m Z^{(j_i)}(\beta),\qquad a_M\in\Z_{\ge1},\qquad g_M=\sum_i g_{j_i}.
+\]
+Only graded dimensions are used: $M$ need not be a literal tensor product.
+\end{definition}
+\begin{lemma}[Finite-length Chernoff--Chebyshev]\label{lem:chebyshev}
+Let $\mathcal A$ be a block alphabet and let $L\ge0$, $0<y_1\le y_2<\infty$ and $\delta>0$. There is a constant $C=C(\mathcal A,L,y_2,\delta)$ such that for every length-$m$ product sector $M$ with $a_M\le e^{Lm}$ and every $y\in[y_1,y_2]$ satisfying $y-g_M/m\ge\delta$,
+\begin{equation}\label{eq:cheb}
+m\cB_M(y)-C\sqrt m\le\log\dimn M_{\le my}\le m\cB_M(y).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The upper bound is Chernoff. Put $\mu_j(\beta)=-(\log Z^{(j)})'$ and $v_j(\beta)=(\log Z^{(j)})''$. These are the mean and variance of the canonical energy; $\mu_j$ is continuous decreasing, $\mu_j(0+)=\infty$ and $\mu_j(\infty)=g_j$. The first limit follows from the infinitely many nonzero coefficients, with $Z^{(j)}(\beta)\to\infty$ as $\beta\downarrow0$.
+
+Choose $0<\beta_{\rm lo}<\beta_{\rm hi}<\infty$ such that $\mu_j(\beta_{\rm lo})>y_2$ and $\mu_j(\beta_{\rm hi})<g_j+\delta/4$ for all $j$. Put $V_*:=\max_{j,\beta\in[\beta_{\rm lo},\beta_{\rm hi}]}v_j(\beta)<\infty$. The sector Gibbs distribution is a sum of $m$ independent block energies; its mean is $\mu_m(\beta)=\sum_i\mu_{j_i}(\beta)$ and its standard deviation $\sigma_m(\beta)\le\sqrt{mV_*}$.
+
+Assume $m>64V_*/(9\delta^2)$. The continuous function $f(\beta)=\mu_m(\beta)+2\sigma_m(\beta)$ lies above $my$ at $\beta_{\rm lo}$ and below $my$ at $\beta_{\rm hi}$. Indeed $f(\beta_{\rm lo})>my_2\ge my$, whereas $f(\beta_{\rm hi})<g_M+m\delta/4+2\sqrt{mV_*}<my$. Hence there is $\beta_1\in[\beta_{\rm lo},\beta_{\rm hi}]$ with $f(\beta_1)=my$. Chebyshev puts at least $3/4$ of Gibbs mass in $[my-4\sigma_m(\beta_1),my]$. On this interval the weights $e^{-\beta_1 E}$ are at most $e^{-\beta_1(my-4\sigma_m(\beta_1))}$, so
+\[
+\dimn M_{\le my}\ge \frac34e^{\beta_1(my-4\sigma_m(\beta_1))}Z_M(\beta_1).
+\]
+In particular, the explicit intermediate estimate is
+\begin{equation}\label{eq:cheb-explicit}
+\log\dimn M_{\le my}\ge m\cB_M(y)-4\beta_1\sigma_m(\beta_1)-\log(4/3)
+\ge m\cB_M(y)-4\beta_{\rm hi}\sqrt{mV_*}-\log(4/3).
+\end{equation}
+Finitely many smaller $m$ are handled by the sector ground state and $a_M\le e^{Lm}$, absorbing the bounded range into $C$. The upper endpoint $\beta_{\rm hi}$ can be chosen using only the gap $\delta$ and the finite alphabet; the constant does not require a separate dependence on $y_1$ once $y-g_M/m\ge\delta$ is imposed.
+\end{proof}
+
+\subsection{Assembly}
+\begin{proposition}[Sector assembly]\label{prop:assembly}
+Let $\mathcal A$ contain a vacuum character $Z^{(j_0)}$ with $g_{j_0}=0$. Fix $L,c\ge0$ and $0<x_1\le x_2<\infty$. There is $C'$ depending only on these data such that if $V=\bigoplus_{\sigma\in\Sigma}M_\sigma$ is a sum of length-$m$ product sectors satisfying
+\begin{enumerate}
+\item $|\Sigma|\le(m+1)^c$ and each multiplicity $a_{M_\sigma}\le e^{Lm}$;
+\item for every sector, $\beta\mapsto\beta\varphi_{M_\sigma}(\beta)$ is nonincreasing;
+\item some sector has character $(Z^{(j_0)})^m$;
+\end{enumerate}
+then for every $h/m\in[x_1,x_2]$ and every $\lambda\ge1$ with $2^\lambda\le\dimn V_h$,
+\begin{equation}\label{eq:main-assembly}
+\rhow(V;h,\lambda)\ge\frac1{\sqrt2}-C'm^{-1/2}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Write $x=h/m$, $\cB_\sigma=\cB_{M_\sigma}$, and $b=\max_\sigma\cB_\sigma(x)$. The vacuum sector gives $b\ge b_0(x_1)>0$, where $b_0(y)=\inf_{\beta>0}[\log Z^{(j_0)}(\beta)+\beta y]$: the Legendre envelope is nondecreasing in $y$ because each affine function in its infimum has slope $\beta>0$. Its positivity at $x_1>0$ follows from the positive-energy states of the vacuum character and the ground term. Chernoff and the number-of-sectors bound give the following estimate in \emph{natural logarithms}; the factor $\log2$ converts the binary encoding parameter $\lambda$ to natural-log units:
+\begin{equation}\label{eq:lambda-upper}
+\lambda\log2\le\log\dimn V_{\le h}\le mb+c\log(m+1).
+\end{equation}
+Choose a maximizing sector $\sigma^*$. It cannot have ground energy $g_{\sigma^*}>mx$, since then $\cB_{\sigma^*}(x)=-\infty$. Hence $2x-g_{\sigma^*}/m\ge x\ge x_1$, so Lemma~\ref{lem:chebyshev} applied at energy $2h$ gives
+\[
+\log\dimn V_{\le2h}\ge m\cB_{\sigma^*}(2x)-C\sqrt m\ge\sqrt2\,mb-C\sqrt m,
+\]
+where the last step is Lemma~\ref{lem:scaling}. Now Lemma~\ref{lem:central} and \eqref{eq:lambda-upper} yield
+\[
+\rhow\ge\frac{\sqrt2\,mb-C\sqrt m}{2(mb+c\log(m+1))}
+\ge\frac1{\sqrt2}-O_{\mathcal A,L,c,[x_1,x_2]}(m^{-1/2}),
+\]
+using $b\ge b_0(x_1)>0$. If the displayed numerator is negative, the inequality is trivial because $\rhow\ge0$.
+\end{proof}
+
+\subsection{Tensor powers}
+\begin{theorem}[Tensor powers]\label{thm:tensor}
+If $B$ is graded, $B_0\ne0$, its character is finite for $\beta>0$ with infinitely many states, and $\beta\mapsto\beta\log Z_B(\beta)$ is nonincreasing, then for $h/m$ in any fixed compact of $(0,\infty)$ and $2^\lambda\le\dimn(B^{\otimes m})_h$,
+\[\rhow(B^{\otimes m};h,\lambda)\ge1/\sqrt2-O(m^{-1/2}).\]
+\end{theorem}
+\begin{proof}Apply Proposition~\ref{prop:assembly} to the single-letter alphabet $(Z_B)$, with one sector.\end{proof}
+
+\subsection{Local refinement}
+\begin{lemma}[Local scaling]\label{lem:local-scale}
+For any $\varphi:(0,\infty)\to\R$, $\psi(\beta)=\beta\varphi(\beta)$, $\cB(y)=\inf_{\beta>0}[\varphi(\beta)+\beta y]$, and $\beta>0$,
+\begin{equation}\label{eq:localscale}
+\varphi(\beta)+2y\beta\ge\sqrt2\,\cB(y)+\frac{\psi(\beta)-\psi(\sqrt2\beta)}\beta.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Subtract $\sqrt2[\varphi(\sqrt2\beta)+\sqrt2\beta y]$ from the left side. The difference is $\varphi(\beta)-\sqrt2\varphi(\sqrt2\beta)=[\psi(\beta)-\psi(\sqrt2\beta)]/\beta$; the bracketed quantity is at least $\sqrt2\,\cB(y)$.
+\end{proof}
+
+\section{Free fields}\label{sec:free}
+\begin{proposition}[Bosonic Fock spaces]\label{prop:bosons}
+Let $c_n\ge0$ be nondecreasing nonnegative integers, not all zero, with $\sum_{n\ge1}nc_ne^{-\beta n}<\infty$ for $\beta>0$. For $Z(\beta)=\prod_{n\ge1}(1-e^{-\beta n})^{-c_n}$, the function $\beta\log Z(\beta)$ is strictly decreasing.
+\end{proposition}
+\begin{proof}Writing $G_c(q)=\sum_{n\ge1}c_nq^n$ for the mode-multiplicity series and expanding the logarithm, we have $\beta\log Z(\beta)=\sum_{k\ge1}k^{-2}\Phi(k\beta)$ with $\Phi(u)=uG_c(e^{-u})$. If $d_j=c_j-c_{j-1}\ge0$ ($c_0=0$), then
+\[\Phi(u)=\sum_{j\ge1}d_je^{-(j-1)u}\frac{u}{e^u-1}.\]
+Every summand decreases, and at least one strictly decreases. Hence so do $\Phi$ and the original series.\end{proof}
+This includes a single free boson ($c_n=1$) and plane-partition-type multiplicities ($c_n=n$).
+\begin{proposition}[Neveu--Schwarz fermion]\label{prop:NS}
+For $Z_F(\beta)=\prod_{n\ge1}(1+e^{-\beta(n-1/2)})$, the function $\beta\log Z_F(\beta)$ is strictly decreasing.
+\end{proposition}
+\begin{proof}Expanding $\log(1+x)$ yields
+\[
+\beta\log Z_F(\beta)=\sum_{k\ge1}\frac{(-1)^{k+1}}{k^2}\,g(k\beta),\quad
+ g(u)=\frac{u}{2\sinh(u/2)}=H(u^2/4),\quad H(s)=\prod_{n\ge1}\left(1+\frac{s}{n^2\pi^2}\right)^{-1}.
+\]
+The product implies $b(s):=-H'(s)>0$ is strictly decreasing to $0$. Thus differentiating termwise on compact positive $\beta$-intervals gives
+\[
+(\beta\log Z_F)'(\beta)=-\frac\beta2\sum_{k\ge1}(-1)^{k+1}b(k^2\beta^2/4)<0
+\]
+by the alternating-series test.\end{proof}
+\begin{corollary}Finite tensor products of the Fock spaces in Propositions~\ref{prop:bosons}--\ref{prop:NS} meet the hypotheses of Theorem~\ref{thm:tensor}.\end{corollary}
+\begin{remark}[Finite blocks]If $1<\dimn B<\infty$ and $B_0\ne0$, then $(\beta\log Z_B)'\to\log\dimn B>0$ as $\beta\downarrow0$. This violates the criterion but does not create admissible pieces with improved $\rho$.\end{remark}
+
+\section{Kleinian code lattices}\label{sec:codes}
+\subsection{Codes, lattices and characters}
+Put $\K=\F_2^2$, the Klein four-group, and endow it with the alternating form
+\[\omega((a,b),(a',b'))=ab'+a'b.\]
+For $S\subset\K^m$ an additive isotropic ($\F_2$-linear and $\omega|_S=0$) code, define $\wt(s)=|\{i:s_i\ne0\}|$. We \emph{define} the graded vector space $V_S$, with degrees in $\frac12\Z_{\ge0}$, by prescribing the Hilbert series of its codeword sectors: each $s\in S$ contributes $A^{m-\wt(s)}B^{\wt(s)}$, with the series $A,B$ specified in~\eqref{eq:characters}. Their coefficients are nonnegative integers (Lemma~\ref{lem:coeff}), so this character prescribes a graded vector space without requiring a vertex-algebra construction. The discriminant group $D_4^*/D_4\cong\K$ carries the bilinear form $\omega/2\pmod{\Z}$; its three nonzero cosets have identical theta series.
+\paragraph{Optional lattice interpretation.}
+The preimage $\Lambda_S$ of $S$ between $D_4^m$ and $(D_4^*)^m$ is an integral (not necessarily even) lattice. Standard lattice-character formulas realize the same Hilbert series through a lattice vertex (super)algebra~\cite{hoehn,conwaysloane}, but no such algebraic structure is needed for the dimension estimates below. In particular, no Appendix-B-compatible operators are claimed on $V_S$.
+
+Set $q=e^{-\beta}$, $P(q)=\prod_{n\ge1}(1-q^n)$ and
+\[\theta_3=\sum_{n\in\Z}q^{n^2/2},\quad\theta_4=\sum_{n\in\Z}(-1)^nq^{n^2/2},\quad\theta_2=\sum_{n\in\Z}q^{(n+1/2)^2/2}.\]
+The classical Jacobi quartic identity $\theta_3^4=\theta_2^4+\theta_4^4$ gives the equivalent forms of $B$ below. In our normalization, the $D_4$ theta series begins
+\[
+\Theta_{D_4}(q)=\frac{\theta_3^4+\theta_4^4}{2}=1+24q+24q^2+96q^3+\cdots.
+\]
+The vacuum and the three equivalent nonzero-coset characters are
+\begin{equation}\label{eq:characters}
+A(\beta)=\frac{\theta_3^4+\theta_4^4}{2P^4},\qquad
+B(\beta)=\frac{\theta_2^4}{2P^4}=\frac{\theta_3^4-\theta_4^4}{2P^4},\quad
+Z_{V_S}=\sum_{s\in S}A^{m-\wt(s)}B^{\wt(s)}.
+\end{equation}
+\begin{lemma}[Positive coefficients]\label{lem:coeff}
+$A=1+28q+134q^2+568q^3+\cdots$, and $B=q^{1/2}\mathcal C(q)$ with $\mathcal C(q)=8+64q+288q^2+1024q^3+\cdots$. Both $A-1$ and $\mathcal C$ have nonnegative integral coefficients. In particular $A$, $-A'$ and $\mathcal C(e^{-\beta})$ are nonincreasing in $\beta$.
+\end{lemma}
+\begin{proof}The numerator is the theta series of a $D_4$ coset and $P^{-4}$ is a product of geometric series. Coefficient positivity and the first coefficients follow by expansion.\end{proof}
+\begin{lemma}[Decreasing ratio]\label{lem:t}
+$t:=B/A\in(0,1)$ is strictly decreasing in $\beta$, and $v:=(\beta\log t)'<0$.
+\end{lemma}
+\begin{proof}The Jacobi triple product gives
+\[
+r=\left(\frac{\theta_4}{\theta_3}\right)^4=\prod_{n\ge1}\left(\frac{1-q^{n-1/2}}{1+q^{n-1/2}}\right)^8,
+\qquad t=\frac{1-r}{1+r}.
+\]
+Each factor of $r$ increases with $\beta$, whence $t'<0$ and $v=\log t+\beta t'/t<0$.\end{proof}
+
+\subsection{Sectors and weight bounds}
+Write $a_{m,k}=|\{s\in S:\wt(s)=k\}|$. Grouping characters gives
+\begin{equation}\label{eq:sectors}
+V_S=\bigoplus_{k:a_{m,k}>0}M_k,\qquad Z_{M_k}=a_{m,k}A^{m-k}B^k,
+\end{equation}
+and the ground energy of the sector is $k/2$. The vacuum sector $M_0$ has character $A^m$ with multiplicity exactly $a_{m,0}=1$, because the only codeword of weight zero is $0$.
+\begin{lemma}[Weight bounds]\label{lem:weights}
+For every isotropic additive $S\subset\K^m$,
+\begin{equation}\label{eq:weights}
+a_{m,k}\le2^m,\qquad a_{m,k}\le\binom mk2^k;\qquad
+\frac1m\log a_{m,k}\le\min\{\log2,\ H(\kappa)+\kappa\log2\},
+\end{equation}
+where $\kappa=k/m$ and $H(\kappa)=-\kappa\log\kappa-(1-\kappa)\log(1-\kappa)$.
+\end{lemma}
+\begin{proof}$S$ is isotropic in a symplectic space of dimension $2m$, so $\dim_{\F_2}S\le m$. For any fixed $k$-subset of coordinates $T$, words supported in $T$ form an isotropic subspace of $\K^T$, of size at most $2^k$. Finally $\binom mk\le e^{mH(k/m)}$. The additivity of $S$ is essential.\end{proof}
+
+\subsection{Sectorwise criterion}
+Define $\varphi_{m,k}=m^{-1}\log Z_{M_k}$ and
+\begin{equation}\label{eq:F}
+g(\beta)=(\beta\log A)',\quad
+F_1=g+\log2,\quad F_2=g+\log(1+2e^v),\quad F=\min\{F_1,F_2\}.
+\end{equation}
+\begin{theorem}[Sectorwise criterion]\label{thm:sector}
+For every $m\ge1$, additive isotropic code $S\subset\K^m$, and present sector $k$, $\beta\mapsto\beta\varphi_{m,k}(\beta)$ is strictly decreasing on $(0,\infty)$.
+\end{theorem}
+\begin{proof}By \eqref{eq:sectors} and $\log B=\log A+\log t$,
+\[
+(\beta\varphi_{m,k})'=\frac1m\log a_{m,k}+g+\kappa v.
+\]
+The first inequality in \eqref{eq:weights}, together with $v<0$, bounds this by $F_1$; the second gives
+\[
+(\beta\varphi_{m,k})'\le g+\sup_{0\le\kappa\le1}\{H(\kappa)+\kappa(\log2+v)\}
+=g+\log(1+2e^v)=F_2.
+\]
+Thus it is at most $F(\beta)<0$ by Proposition~\ref{prop:sign}. No weight-spectrum limit or concavity is used.\end{proof}
+
+\subsection{Main theorem and transfer}
+Here an \emph{admissible level} for $V_S$ is a positive degree $h\in\frac12\Z_{>0}$ of its grading with $\dimn(V_S)_h>0$; for the source's integer-degree comparison we additionally require $h\in\Z_{>0}$. The constants in the next theorem depend on the density endpoints $x_1,x_2$ and the fixed alphabet $(A,B)$, not on $m$, $h$, $\lambda$ or the code $S$.
+\begin{theorem}[Kleinian window barrier]\label{thm:main}
+For $0<x_1\le x_2<\infty$ there is $C=C(x_1,x_2)$ such that for every $m\ge1$, every additive isotropic $S\subset\K^m$, every admissible level $h$ with $h/m\in[x_1,x_2]$, and each $\lambda\ge1$ with $2^\lambda\le\dimn(V_S)_h$,
+\begin{equation}\label{eq:theoremC}
+\boxed{\rhow(V_S;h,\lambda)\ge\frac1{\sqrt2}-Cm^{-1/2}.}
+\end{equation}
+The cost is that of Definition~\ref{def:windows} using real windows on the $\frac12\Z$ grading.
+\end{theorem}
+\begin{proof}Apply Proposition~\ref{prop:assembly} to the alphabet $(A,B)$, the vacuum letter $A$, $L=\log2$, and $c=1$; Lemma~\ref{lem:weights} controls sector counts, Theorem~\ref{thm:sector} gives the derivative criterion, and $M_0=A^m$ is the vacuum sector.\end{proof}
+\begin{corollary}[No fixed-density window improvement]\label{cor:fixed}
+Given $\varepsilon>0$ and compact $\mathcal J\Subset(0,\infty)$, for sufficiently large $m$ no such code family at $h/m\in \mathcal J$ has $\rhow\le1/\sqrt2-\varepsilon$, regardless of whether its weight-spectrum exponent is concave, non-concave or undefined.
+\end{corollary}
+\begin{remark}[Whole-character estimate]\label{rem:whole}
+For $0\le t\le1$, the classical support argument yields $W_S(1,t):=\sum_{s\in S}t^{\wt(s)}\le(1+t)^m$. Convexity gives
+\[m^{-1}(\beta\log Z_{V_S})'\le g+\log(1+e^v).\]
+This alone does not control the microcanonical windows without extra hypotheses; the proof above proceeds sector by sector.\end{remark}
+
+\begin{lemma}[Even subcode and integer-degree part]\label{lem:even}
+For isotropic $S$, the map $s\mapsto\wt(s)\bmod2$ is $\F_2$-linear. Its kernel $S_0$ is isotropic, all its weights are even, $[S:S_0]\le2$, and
+\[
+\bigoplus_{E\in\Z}(V_S)_E\cong V_{S_0}
+\]
+as graded vector spaces.
+\end{lemma}
+\begin{proof}For $Q:\K\to\F_2$, $Q(0)=0$ and $Q(x)=1$ for $x\ne0$, direct inspection gives $Q(x+y)+Q(x)+Q(y)=\omega(x,y)$. Thus $\wt(s)\bmod2=Q^{\oplus m}(s)$ is linear on isotropic $S$. A sector of weight $k$ has character $a_{m,k}q^{k/2}A^{m-k}\mathcal C^k$ with $A,\mathcal C\in\Z[[q]]$, so it has integer degrees precisely for even $k$. Their sum is the character and the sector sum of $V_{S_0}$.\end{proof}
+\begin{remark}[Integer degrees and admissibility]
+For integer-energy windows as in the source Appendix B, apply Theorem~\ref{thm:main} to $S_0$; it remains a code in the same class, with the same universal constants. This does not by itself provide the requisite multiplication operators or factorization identities.\end{remark}
+
+\begin{lemma}[Growth at the exact integer level]\label{lem:linear}
+Let $\mathcal J=[x_1,x_2]\Subset(0,\infty)$. There exist $c_{\mathcal J},C_{\mathcal J}>0$ and an integer $m_{\mathcal J}$ such that, for every $m\ge m_{\mathcal J}$ and every \emph{integer $h$} with $h/m\in \mathcal J$, every isotropic $S$ satisfies
+\begin{equation}\label{eq:linear}
+c_{\mathcal J}m\le\log_2\dimn(V_S)_h\le C_{\mathcal J}m.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The vacuum sector gives $\dimn(V_S)_h\ge[q^h]A^m$. Write $A=N(q)P^{-4}$ with $N=(\theta_3^4+\theta_4^4)/2\in\Z_{\ge0}[[q]]$ and constant term $1$. Because $P^{-4m}=(1-q)^{-1}G(q)$ for some positive-coefficient $G$, its coefficients are nondecreasing; multiplication by $N^m$ preserves this property. Therefore
+\[
+[q^h]A^m\ge\frac{1}{h+1}\dimn(A^m)_{\le h}.
+\]
+Apply Lemma~\ref{lem:chebyshev} to the single-letter alphabet $(A)$ with $y=h/m\in \mathcal J$ and gap $\delta=x_1$. It yields $\log\dimn(A^m)_{\le h}\ge m b_A(x_1)-C\sqrt m$ with $b_A(x_1)>0$, hence $\log\dimn(V_S)_h\ge mb_A(x_1)-C\sqrt m-\log(h+1)$. For example, set $b_*=b_A(x_1)>0$ and choose $m_{\mathcal J}$ sufficiently large that the finite-length lemma applies and, for every $m\ge m_{\mathcal J}$,
+\[
+C\sqrt m\le\tfrac14mb_*,\qquad \log(x_2m+1)\le\tfrac14mb_*.
+\]
+Then one may take $c_{\mathcal J}=b_*/(2\log2)$; this specifies a finite threshold $m_{\mathcal J}$ without claiming its numerical optimality. For the other direction, use \eqref{eq:chernoff} for each of the at most $m+1$ sectors at $\beta=1$: $\log\dimn(V_S)_h\le\log(m+1)+m[\log2+\max\{\log A(1),\log B(1)\}+x_2]$.\end{proof}
+
+\begin{corollary}[Transfer to Definition 7(b)]\label{cor:def7}
+Fix a compact density interval $\mathcal J\Subset(0,\infty)$, $\theta>0$ and an integer $c\ge1$. Assume:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $S\subset\K^m$ is additive isotropic and $h/m\in \mathcal J$;
+\item $\lambda\ge\theta m$ and $2^\lambda\le\dimn(V_S)_h$;
+\item the piece index set $I$ contains $0$;
+\item the two bit costs at each $s$ are the \emph{ceilings} of the binary logarithms of the prescribed window dimensions and obey~\eqref{eq:def7}.
+\end{enumerate}
+Then
+\begin{equation}\label{eq:transfer}
+\rho\ge\frac1{\sqrt2}-C(\mathcal J,\theta,c)m^{-1/2}.
+\end{equation}
+For integer $h$ one may choose $\lambda=\lfloor\log_2\dimn(V_S)_h\rfloor$, which obeys $\lambda=\Theta_{\mathcal J}(m)$ by Lemma~\ref{lem:linear}. The conclusion applies equally to the integer-degree even subcode $S_0$.
+\end{corollary}
+\begin{proof}At $s=0$ the two costs are each at least $D(2h)$, and \eqref{eq:def7} gives
+\[
+\rho\ge\frac{D(2h)}{2\lambda}-\frac{c\log(2\lambda)}{4\lambda}.
+\]
+The \emph{central-ratio} estimate in Proposition~\ref{prop:assembly} gives the first term at least $1/\sqrt2-O_{\mathcal J}(m^{-1/2})$. From $\theta m\le\lambda\le C_{\mathcal J}m$, the tolerance is $O_{\mathcal J,\theta,c}(\log m/m)=O(m^{-1/2})$. This is a statement only for the specified cost model and does not rule out cheaper intrinsic factorizations or assert the existence of the required operators.\end{proof}
+
+\begin{remark}[Strict margin on each fixed compact]\label{rem:strict}
+Theorem~\ref{thm:main} is a uniform but generally nonsharp statement. For a compact density interval $\mathcal J=[x_1,x_2]$, choose $0<\beta_{\rm lo}(\mathcal J)<\beta_{\rm hi}(\mathcal J)$ so that, for both letters $j\in\{A,B\}$ with ground energies $g_A=0,g_B=1/2$,
+\[
+\mu_j(\beta_{\rm lo}(\mathcal J))>2x_2,\qquad
+\mu_j(\beta_{\rm hi}(\mathcal J))<g_j+x_1/4.
+\]
+Let $V_*(\mathcal J)$ be the maximum of the two block variances over this interval, and $m_0(\mathcal J)>64V_*(\mathcal J)/(9x_1^2)$. For $m\ge m_0(\mathcal J)$, the Chebyshev proof at energy $2h$ provides for the maximizing sector an inverse temperature $\beta_1\in[\beta_{\rm lo}(\mathcal J),\beta_{\rm hi}(\mathcal J)]$ with
+\[
+\log\dimn V_{\le2h}\ge m[\varphi_{m,k^*}(\beta_1)+2x\beta_1]-C_{\mathcal J}\sqrt m.
+\]
+Apply Lemma~\ref{lem:local-scale}, and note that $\psi_{m,k}'(\beta)\le F(\beta)<0$ uniformly in $m,k$. Thus
+\[
+\frac{\psi_{m,k^*}(\beta_1)-\psi_{m,k^*}(\sqrt2\beta_1)}{\beta_1}
+\ge\delta_{\mathcal J}:=(\sqrt2-1)\min_{\beta\in[\beta_{\rm lo}(\mathcal J),\sqrt2\beta_{\rm hi}(\mathcal J)]}(-F(\beta))>0.
+\]
+On the other hand, the maximizing value $b=\max_k\cB_{M_k}(x)$ has the uniform upper bound\par\vspace{-5pt}\[b\le b_{\mathcal J}^{\max}:=\log2+\max\{\log A(1),\log B(1)\}+x_2.\]\vspace{-9pt}Combining these estimates with \eqref{eq:lambda-upper} gives the sharpened \emph{fixed-compact} conclusion
+\[
+\rhow(V_S;h,\lambda)\ge\frac1{\sqrt2}+\eta_{\mathcal J}-O_{\mathcal J}(m^{-1/2}),\qquad
+\eta_{\mathcal J}:=\frac{\delta_{\mathcal J}}{2b_{\mathcal J}^{\max}}>0.
+\]
+This estimate first holds for $m\ge m_0(\mathcal J)$, when $\beta_1$ exists by the displayed criterion; smaller lengths are absorbed into the asymptotic error by adjusting the constant. It is an algebraic consequence of the strict sector sign, not an optimal or numerically certified value of $\eta_{\mathcal J}$, and does not extend uniformly to $h/m\to\infty$.
+\end{remark}
+
+\section{Limitations and open problems}\label{sec:open}
+\paragraph{Scope of the partial answer.}
+The bound of Theorem~\ref{thm:main} excludes a limiting fixed-density improvement below $1/\sqrt2$ \emph{within the prescribed window-cost model} for the indicated Kleinian families. Since $\rho_{\rm rank}\le\rhow$ and no Appendix-B-compatible operators have been constructed for them, it does not exclude a lower intrinsic cost, a different window geometry, or a distinct four-leg identity that could address~\cite[Problem~1]{majdoddin}.
+\begin{question}[Variable densities]\label{q:density}
+Does Theorem~\ref{thm:main} extend uniformly to $h/m\to0$ or $h/m\to\infty$? The compact inverse-temperature bounds used in Lemma~\ref{lem:chebyshev} degenerate in those regimes. The latter regime is especially relevant to the original partition construction.
+\end{question}
+\begin{remark}[Heuristic only]Both ends may admit stronger specialized estimates; partition/Cardy expansions at large density and vacuum-sector estimates at small density are suggestive but are not uniform proofs.\end{remark}
+\begin{question}[Other glue groups]\label{q:other}
+Can the sector criterion be established for other lattices and discriminant groups, with complete weight enumerators when the nonzero cosets are inequivalent? Proposition~\ref{prop:assembly} would then apply without change.
+\end{question}
+\begin{question}[Admissible graded operators]\label{q:operators}
+Do the operator relations required by \cite[Appendix B]{claude3sat} force a corresponding thermodynamic saturation condition, or can exact efficiently computable pieces be built on a family with a genuinely smaller window cost? Such operators are not constructed in this paper.
+\end{question}
+\begin{question}[Intrinsic ranks of $A_0$: two distinct problems]\label{q:ranks}
+\emph{Fixed partition encoding:} for the central piece $A_0$ and the partition encoding \emph{specified} by \cite[Appendix B]{claude3sat}, determine the intrinsic row and column flattening ranks and whether they are at least $\dimn V_{\le2h}/\mathrm{poly}(h)$. \emph{Uniform admissible encodings:} does an analogous asymptotic lower bound hold \emph{uniformly over every admissible encoding}? These are different quantified statements. Neither follows from the present window estimates.
+\end{question}
+\begin{question}[Universal floor]
+For a genuinely broader class of exact algebraic pieces, is there any $\varepsilon>0$ that forces $\rho\ge1/2+\varepsilon$? This is well beyond the results of this note.
+\end{question}
+
+\section*{Computational verification and AI use}
+\addcontentsline{toc}{section}{Computational verification and AI use}
+The numerical sign conditions in Appendix~\ref{app:sign} were checked by a fresh execution of the canonical Arb program, by a separate \texttt{mpmath.iv} interval implementation, and by an exact-integer coefficient verifier. Appendix~\ref{app:cert} describes their scope and reproducibility. These computations do not constitute a formal proof checked by a proof assistant. ChatGPT (OpenAI) and Claude (Anthropic) were used for mathematical exploration, drafting, code development, and consistency checks. No AI system is an author or human referee; responsibility for all claims remains with the author. Independent qualified human review of Appendix~A and the interface with Definition~7 of~\cite{claude3sat} has not yet been completed.
+
+\appendix
+\section{Proof of the sector sign}\label{app:sign}
+\begin{proposition}[Global sign]\label{prop:sign}
+For $F$ in \eqref{eq:F}, $F(\beta)<0$ for every $\beta>0$. Specifically $F_1<0$ on $(0,4]$ and $F_2<0$ on $[4,\infty)$.
+\end{proposition}
+The sign proof uses the three regimes $(0,4]$, $[4,5]$, and $[5,\infty)$. The lemmas below establish the required inequalities on these intervals; their numerical enclosures can be checked with the companion Arb script.
+\begin{lemma}[Modular transformation]\label{lem:modular}
+Put $\beta^*=4\pi^2/\beta$, $\Psi(q)=(\theta_3(q)^4+\theta_2(q)^4)/P(q)^4$, and $\psi_{\Psi}(y)=\log\Psi(e^{-y})$. Then
+\begin{equation}\label{eq:modular}
+\log A(\beta)=\frac{\beta^*-\beta}{6}-\log2+\psi_{\Psi}(\beta^*),\quad
+F_1(\beta)=-\frac\beta3+\psi_{\Psi}(\beta^*)-\beta^*\psi_{\Psi}'(\beta^*).
+\end{equation}
+Moreover, by the Jacobi identity, $\Psi=A+3B$, with the explicit initial expansion
+\[
+\Psi(q)=1+24q^{1/2}+28q+192q^{3/2}+134q^2+O(q^{5/2}).
+\]
+Thus $\Psi(e^{-y})=1+\sum_{\nu\in\frac12\Z,\nu\ge1/2}c_\nu e^{-\nu y}$ with $c_\nu\ge0$. These coefficients permit an independent low-order check of the point bound $R(\pi^2)\approx10.2925020821$, while its rigorous enclosure is supplied by the certificate.
+\end{lemma}
+\begin{proof}Poisson summation supplies $\theta_3(e^{-\beta})=(2\pi/\beta)^{1/2}\theta_3(e^{-\beta^*})$ and $\theta_4(e^{-\beta})=(2\pi/\beta)^{1/2}\theta_2(e^{-\beta^*})$. The eta transformation yields $P(e^{-\beta})=(2\pi/\beta)^{1/2}e^{(\beta-\beta^*)/24}P(e^{-\beta^*})$. Substitution and differentiation using $\beta\beta^*=4\pi^2$ give \eqref{eq:modular}. Positivity follows from theta and $P^{-4}$ series.\end{proof}
+\begin{lemma}[Small inverse temperature]\label{lem:small}
+$F_1(\beta)<0$ for $0<\beta\le4$.
+\end{lemma}
+\begin{proof}Let $T_{\Psi}(y):=-\dd\Psi(e^{-y})/\dd y=\sum_\nu \nu c_\nu e^{-\nu y}>0$. Since all $\nu\ge1/2$ and $\Psi\ge1$, $\psi_{\Psi}\le\Psi-1\le2T_{\Psi}$ and $-\psi_{\Psi}'\le T_{\Psi}$. Thus
+\[
+F_1(\beta)\le-\frac\beta3+(2+\beta^*)T_{\Psi}(\beta^*)
+=\frac{R(\beta^*)-4\pi^2/3}{\beta^*},\quad R(y)=y(2+y)T_{\Psi}(y).
+\]
+Each term of $R$ decreases for $y>1+\sqrt5$; for $\beta\le4$ we have $\beta^*\ge\pi^2$. The certified point bound is $R(\pi^2)<10.29251<4\pi^2/3\approx13.15947$. Hence the right-hand side is negative.\end{proof}
+\begin{lemma}[Intermediate boxes]\label{lem:middle}
+$F_2(\beta)<0$ for $4\le\beta\le5$.
+\end{lemma}
+\begin{proof}Let $\Delta_A(\beta)=-A'(\beta)\ge0$ and write $B=q^{1/2}\mathcal C$. Then
+\[
+g=\log A-\frac{\beta\Delta_A}{A},\quad
+v\le-\beta+\log\mathcal C-\log A+\frac{\beta\Delta_A}{A}.
+\]
+Since $\frac{\dd}{\dd\beta}\mathcal C(e^{-\beta})\le0$ and $A\ge1$, the preceding estimate also gives the bound required in the final regime:
+\begin{equation}\label{eq:exp-v-bound}
+e^{v(\beta)}\le e^{-\beta}\mathcal C(e^{-\beta})\exp\bigl(\beta\Delta_A(\beta)\bigr).
+\end{equation}
+For $4\le b'\le\beta\le b''\le5$, coefficient positivity and the decrease of $A,\Delta_A,\mathcal C$ imply
+\begin{equation}\label{eq:box}
+F_2(\beta)\le U(b',b''):=\log A(b')-\frac{b'\Delta_A(b'')}{A(b')}
++\log\left(1+\frac{2e^{-b'}\mathcal C(e^{-b'})}{A(b'')}e^{b''\Delta_A(b')/A(b'')}\right).
+\end{equation}
+Ten intervals $[4+i/10,4+(i+1)/10]$ give strictly negative upper bounds $U$, with the weakest no larger than $-0.1618$. Both the canonical Arb certificate and the separate \texttt{mpmath.iv} interval checker verify these inequalities. The regenerated values appear in Table~\ref{tab:intervals}; the scripts, execution logs and exported table accompany the manuscript.\end{proof}
+\begin{table}[htbp]\centering\small
+\begin{tabular}{rrrrr}\toprule
+$\beta$&$A(\beta)$&$\Delta_A(\beta)$&$\mathcal C(e^{-\beta})$&$U[\beta,\beta+.1]$ upper bound\\\midrule
+4.0&1.5614948801&0.6140840464&9.2754793271&-0.1618\\
+4.1&1.5035672897&0.5459791406&9.1446615704&-0.2186\\
+4.2&1.4520193458&0.4862735504&9.0280978931&-0.2654\\
+4.3&1.4060725724&0.4337747160&8.9240792320&-0.3029\\
+4.4&1.3650575244&0.3874875235&8.8311300163&-0.3318\\
+4.5&1.3283959991&0.3465767090&8.7479711845&-0.3528\\
+4.6&1.2955865877&0.3103372854&8.6734899373&-0.3669\\
+4.7&1.2661928643&0.2781711162&8.6067148458&-0.3750\\
+4.8&1.2398336691&0.2495682349&8.5467952494&-0.3778\\
+4.9&1.2161750683&0.2240918518&8.4929841075&-0.3763\\
+5.0&1.1949236629&0.2013662464&8.4446236514&--\\
+\bottomrule
+\end{tabular}
+\caption{Values independently regenerated from the \texttt{mpmath.iv} interval checker (80 decimal-digit working precision), not copied from an earlier PDF. The first three data columns show 10-decimal approximations to extremely narrow enclosures; the final column gives \emph{outward rounded upper bounds} (to four decimals) for $U$ on each box. A fresh Arb calculation also confirms all eleven rows and their displayed rounding; the canonical Arb journal certifies the aggregate worst-case inequality.}\label{tab:intervals}
+\end{table}
+\begin{lemma}[Large inverse temperature]\label{lem:large}
+$F_2(\beta)<0$ for $\beta\ge5$.
+\end{lemma}
+\begin{proof}Write $\varepsilon=A-1\ge28q$, $\Delta_A=-A'\ge\varepsilon$. Since $\log(1+\varepsilon)\le\varepsilon$,
+\[
+g\le\frac{\varepsilon(1+\varepsilon-\beta)}{1+\varepsilon}.
+\]
+Furthermore \eqref{eq:exp-v-bound} gives $e^v\le q\mathcal C(e^{-\beta})\exp(\beta\Delta_A)$; also $\log(1+2e^v)\le2e^v$. The coefficients of $A-1$ occur in degrees $n\ge1$, so
+\[
+\frac{\dd}{\dd\beta}(\beta\Delta_A(\beta))
+=\sum_{n\ge1}na_n(1-\beta n)e^{-\beta n}\le0\qquad(\beta\ge5).
+\]
+Therefore $\varepsilon$, $\mathcal C$, and $\beta\Delta_A$ are all nonincreasing on $[5,\infty)$, and
+\[
+F_2(\beta)\le-e^{-\beta}\left[\frac{28(\beta-1-\varepsilon(5))}{1+\varepsilon(5)}-2\mathcal C(e^{-5})e^{5\Delta_A(5)}\right].
+\]
+The bracket increases with $\beta$; at $\beta=5$ certified enclosures give $89.162296\ldots-46.224428\ldots>42.9378>0$.\end{proof}
+\begin{proof}[Proof of Proposition~\ref{prop:sign}]
+Lemma~\ref{lem:small} gives $F(\beta)\le F_1(\beta)<0$ up to $4$; Lemmas~\ref{lem:middle} and \ref{lem:large} give $F(\beta)\le F_2(\beta)<0$ above $4$.\end{proof}
+
+\section{Reproducibility and computational trust}\label{app:cert}
+The certification scripts, execution logs, numerical table, dependency versions, and SHA-256 manifest for this preprint are distributed in the versioned software release \texttt{v1.0.0} of \emph{graded-window-barrier-certificates}: \url{https://github.com/MFRADJ/graded-window-barrier-certificates/releases/tag/v1.0.0}. The repository is \url{https://github.com/MFRADJ/graded-window-barrier-certificates}. The canonical program \texttt{certify\_arb\_independent.py} uses Arb ball arithmetic~\cite{johansson} to check the three numerical conditions supporting the regimes $(0,4]$, $[4,5]$, and $[5,\infty)$ in Appendix~\ref{app:sign}; its box bound is equation~\eqref{eq:box}. The separate \texttt{mpmath.iv} implementation is a cross-check using the same analytic tail majorants. Neither implementation is a Lean-kernel proof of the full theorem.
+
+The four scripts were executed successfully on 13 November 2026 using CPython 3.14.3 (64-bit Windows), \texttt{python-flint} 0.9.0, FLINT 3.6.0 (with integrated Arb), and \texttt{mpmath} 1.3.0. Arb used 256-bit precision; \texttt{mpmath.iv} used 80 decimal digits. All three Arb conditions passed and the program returned \texttt{APPENDIX A: CERTIFIED} with exit status zero. The exact-integer checker verifies the stated coefficient identities at all retained exponents strictly below 200. The table generator rounds exact binary interval endpoints by integer arithmetic; all eleven displayed rows were also checked against Arb enclosures. The analytic reductions and tail estimates remain part of the mathematical argument, and these computations do not supply the missing algebraic operators or establish bounds on all intrinsic factorization ranks.
+
+\begin{thebibliography}{99}\small
+\bibitem{claude3sat} Claude (Anthropic), \emph{A $2^{o(n)}$ time algorithm for 3-SAT}, Hexagon 2610.00577v1 (2026). \url{https://hexagonmath.org/2610.00577v1}.
+\bibitem{brito} Carlos Stein Naves de Brito, \emph{The partition exponent in the graded pieces of the Claude 3-SAT algorithm is optimal for pieces of that shape}, Hexagon 2610.00692v1, 31 October 2026. \url{https://hexagonmath.org/2610.00692v1}.
+\bibitem{majdoddin} Ruhollah Majdoddin, \emph{Lowered crossover points of Anthropic's subexponential 3-SAT algorithm}, arXiv:2610.41622 (30 October 2026). \url{https://arxiv.org/abs/2610.41622}.
+\bibitem{tulsyan} Vaibhav Tulsyan, \emph{What the ETH refutations do not give: barriers for the counting engines, with machine-checked lemmas}, Hexagon 2611.00149v1 (6 November 2026). \url{https://hexagonmath.org/2611.00149v1}.
+\bibitem{hardyramanujan} G. H. Hardy and S. Ramanujan, \emph{Asymptotic formulae in combinatory analysis}, Proc. London Math. Soc. (2) 17 (1918), 75--115.
+\bibitem{apostol} T. M. Apostol, \emph{Modular Functions and Dirichlet Series in Number Theory}, 2nd ed., Springer (1990).
+\bibitem{calderbank} A. R. Calderbank, E. M. Rains, P. W. Shor, N. J. A. Sloane, \emph{Quantum error correction via codes over GF(4)}, IEEE Trans. Inform. Theory 44 (1998), 1369--1387.
+\bibitem{cardy} J. L. Cardy, \emph{Operator content of two-dimensional conformally invariant theories}, Nucl. Phys. B 270 (1986), 186--204.
+\bibitem{conwaysloane} J. H. Conway, N. J. A. Sloane, \emph{Sphere Packings, Lattices and Groups}, 3rd ed., Springer (1999).
+\bibitem{dymarsky} A. Dymarsky, A. Shapere, \emph{Quantum stabilizer codes, lattices, and CFTs}, J. High Energy Phys. 2021(3), 160; arXiv:2009.01244.
+\bibitem{ellis} R. S. Ellis, \emph{Entropy, Large Deviations, and Statistical Mechanics}, Springer (1985).
+\bibitem{hks} T. Hartman, C. A. Keller, B. Stoica, \emph{Universal spectrum of 2d conformal field theory in the large c limit}, JHEP 2014(9), 118.
+\bibitem{hoehn} G. H\"ohn, \emph{Self-dual codes over the Kleinian four group}, Math. Ann. 327 (2003), 227--255; arXiv:math/0005266.
+\bibitem{johansson} F. Johansson, \emph{Arb: efficient arbitrary-precision midpoint-radius interval arithmetic}, IEEE Trans. Computers 66 (2017), 1281--1292. \url{https://doi.org/10.1109/TC.2017.2690633}.
+\end{thebibliography}
+\end{document}

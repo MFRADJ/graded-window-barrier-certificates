@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite the preprint and software version used. The preferred citation describes the manuscript."
+type: software
+title: "Graded-window barrier certificates"
+authors:
+  - family-names: Fradj
+    given-names: Mohamed
+version: 1.0.0
+date-released: 2026-11-13
+repository-code: "https://github.com/MFRADJ/graded-window-barrier-certificates"
+url: "https://github.com/MFRADJ/graded-window-barrier-certificates/releases/tag/v1.0.0"
+license: MIT
+keywords:
+  - interval arithmetic
+  - Arb
+  - graded spaces
+  - reproducibility
+preferred-citation:
+  type: report
+  title: "Thermodynamic saturation and window barriers for graded spaces in a subexponential 3-SAT algorithm"
+  authors:
+    - family-names: Fradj
+      given-names: Mohamed
+  year: 2026
+  version: "1.0.0"
+  notes: "Scientific preprint. Manuscript copyright: Mohamed Fradj, all rights reserved."
+  url: "https://github.com/MFRADJ/graded-window-barrier-certificates/blob/v1.0.0/manuscript/Preprint_v1_0_0.pdf"
