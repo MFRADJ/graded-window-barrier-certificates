@@ -1,0 +1,17 @@
+{
+  "m": 20,
+  "h": 300,
+  "mh": 6000,
+  "code": "vacuum",
+  "lambda_h": 543,
+  "rho_win": 0.7209507827199926,
+  "maximizer_t": 0.0,
+  "bounds": {
+    "lower": 0.464891699835112,
+    "upper": 1.3784960203191616,
+    "upper_strict": 1.2158810478936275,
+    "X_minus_e2": 333.4097654764279
+  },
+  "checks": "PASS",
+  "method": "exact integer series + float comparisons"
+}

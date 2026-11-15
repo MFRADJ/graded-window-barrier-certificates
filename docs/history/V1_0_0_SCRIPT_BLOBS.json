@@ -1,0 +1,22 @@
+{
+  "certify_arb_independent.py": {
+    "git_blob_sha1": "8cf2dc64f737088c5bb80c769b92f3bfb5efab1f",
+    "sha256": "9c257642fb5d2fcda9566786937bd15dfe81c14ef7e187e1342b4cbd636c1606",
+    "size": 5223
+  },
+  "supplement/certify_mpmath_iv_crosscheck.py": {
+    "git_blob_sha1": "e3d5dfeeac6fcf960c5332aacf92ff46eaee84e2",
+    "sha256": "a222dda24190f46bbb2009805bfe6cf82b258b8a7ed32525bc67836d5c3e925e",
+    "size": 3822
+  },
+  "supplement/regenerate_interval_table.py": {
+    "git_blob_sha1": "ab969e3d72cc5c724a3707623fad497622814560",
+    "sha256": "f48ebc0acdc15a0bc6d35fd6615bdaf8b9b1a483b98ac2a0cc16f5d8435330a5",
+    "size": 3274
+  },
+  "supplement/series_exact.py": {
+    "git_blob_sha1": "4264538213a7f20b9f63c8ab1a7986e15995e80c",
+    "sha256": "8e95f2a288da3cbc4acda10e307139f600f3524e67205a15f924b3560caa0383",
+    "size": 3498
+  }
+}

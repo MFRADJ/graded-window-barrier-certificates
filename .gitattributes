@@ -1,0 +1,2 @@
+* -text
+# Keep all distributed source bytes unchanged on checkout, including historical files.

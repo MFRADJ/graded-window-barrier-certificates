@@ -1,0 +1,5 @@
+CMD: <PYTHON> verify_integrity.py
+CWD: <LOCAL_WORKSPACE>\output\v1_1_0_validation\20261115_191229_495190_all_3c0b04\reproduction
+INPUT INTEGRITY: 37 verified, 0 failures
+
+EXIT CODE: 0

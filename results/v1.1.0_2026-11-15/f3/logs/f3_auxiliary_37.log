@@ -1,0 +1,38 @@
+PASS A.2 modular logA beta=0.4: 4.421718e-75
+PASS A.2 F1 derivative beta=0.4: 1.03634e-76
+PASS A.2 modular logA beta=0.9: 0.0
+PASS A.2 F1 derivative beta=0.9: 1.381787e-76
+PASS A.2 modular logA beta=2: 5.527148e-76
+PASS A.2 F1 derivative beta=2: 1.381787e-76
+PASS A.2 modular logA beta=4: 0.0
+PASS A.2 F1 derivative beta=4: 0.0
+PASS A.2 modular logA beta=5: 3.454467e-77
+PASS A.2 F1 derivative beta=5: 0.0
+PASS A.2 modular logA beta=8: 3.540829e-76
+PASS A.2 F1 derivative beta=8: 2.763574e-76
+PASS 6.4 sector envelope m=2, beta=1: max excess -8.88e-07
+PASS 6.4 sector envelope m=2, beta=2: max excess -0.00899
+PASS 6.4 sector envelope m=2, beta=4: max excess -0.384
+PASS 6.4 sector envelope m=2, beta=5: max excess -0.156
+PASS 6.4 sector envelope m=2, beta=7: max excess -0.0161
+PASS 6.4 sector envelope m=5, beta=1: max excess -7.1e-07
+PASS 6.4 sector envelope m=5, beta=2: max excess -0.00719
+PASS 6.4 sector envelope m=5, beta=4: max excess -0.244
+PASS 6.4 sector envelope m=5, beta=5: max excess -0.156
+PASS 6.4 sector envelope m=5, beta=7: max excess -0.0161
+PASS 6.4 sector envelope m=11, beta=1: max excess -6.46e-07
+PASS 6.4 sector envelope m=11, beta=2: max excess -0.00654
+PASS 6.4 sector envelope m=11, beta=4: max excess -0.141
+PASS 6.4 sector envelope m=11, beta=5: max excess -0.0997
+PASS 6.4 sector envelope m=11, beta=7: max excess -0.0161
+PASS A.4 ten rational-box evaluations (numeric): largest=-0.16184409058565
+PASS 6.13 tolerance monotonic lambda=2: -0.09657359
+PASS 6.13 tolerance monotonic lambda=3: -0.087973274
+PASS 6.13 tolerance monotonic lambda=5: -0.052103404
+PASS 6.13 tolerance monotonic lambda=10: -0.019957323
+PASS 6.13 tolerance monotonic lambda=30: -0.0034381606
+PASS 6.13 tolerance monotonic lambda=100: -0.00042983174
+PASS 4.4 finite-length threshold delta=0.1: m=1930
+PASS 4.4 finite-length threshold delta=1.0: m=30
+PASS 4.4 finite-length threshold delta=4.0: m=12
+SUMMARY 37/37

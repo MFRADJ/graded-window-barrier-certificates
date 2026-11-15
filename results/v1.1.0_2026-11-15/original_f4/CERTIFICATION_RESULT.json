@@ -1,0 +1,153 @@
+{
+  "mode": "all",
+  "all_pass": true,
+  "expected": 14,
+  "observed": 14,
+  "status_count": {
+    "PASS": 14,
+    "SKIPPED": 0,
+    "FAIL": 0,
+    "MISSING": 0,
+    "TIMEOUT": 0
+  },
+  "python": "3.14.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "flint_installed": true,
+  "mpmath_installed": true,
+  "original_lanes": {
+    "fixed_density": "4 original scripts included unchanged",
+    "high_density": "separate scripts included"
+  },
+  "source_original_files_modified": false,
+  "github_modified": false,
+  "note": "PASS is a script result, NOT human proof validation; SKIPPED is never counted as PASS",
+  "results": [
+    {
+      "name": "fixed_iv_3regimes",
+      "source": "certificates/fixed_density/certify_mpmath_iv_crosscheck.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.325,
+      "log": "logs\\replay\\fixed_iv_3regimes.log"
+    },
+    {
+      "name": "fixed_interval_table",
+      "source": "certificates/fixed_density/regenerate_interval_table.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.387,
+      "log": "logs\\replay\\fixed_interval_table.log"
+    },
+    {
+      "name": "fixed_series_exact",
+      "source": "certificates/fixed_density/series_exact.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 6.434,
+      "log": "logs\\replay\\fixed_series_exact.log"
+    },
+    {
+      "name": "highdensity_iv_32",
+      "source": "certificates/high_density/certify_highdensity_mpmath_iv_S5_4.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.095,
+      "log": "logs\\replay\\highdensity_iv_32.log"
+    },
+    {
+      "name": "highdensity_15_small",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_independent.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.223,
+      "log": "logs\\replay\\highdensity_15_small.log"
+    },
+    {
+      "name": "highdensity_m20_h300",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_threshold.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.465,
+      "log": "logs\\replay\\highdensity_m20_h300.log"
+    },
+    {
+      "name": "fixed_density_arb_256",
+      "source": "certificates/fixed_density/certify_arb_independent.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.136,
+      "log": "logs\\replay\\fixed_density_arb_256.log"
+    },
+    {
+      "name": "highdensity_s2bis_arb_200",
+      "source": "certificates/high_density/certify_constants_arb_V2-S2-bis.py",
+      "status": "PASS",
+      "classification": "mixed_31_Arb_3_numeric",
+      "exit_code": 0,
+      "elapsed_s": 0.824,
+      "log": "logs\\replay\\highdensity_s2bis_arb_200.log"
+    },
+    {
+      "name": "highdensity_s4_arb_256",
+      "source": "certificates/review/certify_constants_V2-S4.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.096,
+      "log": "logs\\replay\\highdensity_s4_arb_256.log"
+    },
+    {
+      "name": "highdensity_chainrule_arb_256",
+      "source": "certificates/review/arb_chain_rule_C1_V2-S5_5.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.088,
+      "log": "logs\\replay\\highdensity_chainrule_arb_256.log"
+    },
+    {
+      "name": "s2_old_full_audit",
+      "source": "certificates/high_density/verify_v2s2.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 43.973,
+      "log": "logs\\replay\\s2_old_full_audit.log"
+    },
+    {
+      "name": "s4_exact_6118_reviewer",
+      "source": "certificates/review/audit_exact_V2-S4.py",
+      "status": "PASS",
+      "classification": "integer_coefficients_plus_floating_log_comparisons",
+      "exit_code": 0,
+      "elapsed_s": 4.595,
+      "log": "logs\\replay\\s4_exact_6118_reviewer.log"
+    },
+    {
+      "name": "s4_large_m",
+      "source": "certificates/review/audit_large_m_V2-S4.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 69.558,
+      "log": "logs\\replay\\s4_large_m.log"
+    },
+    {
+      "name": "threshold_mh4000_26",
+      "source": "certificates/review/exact_hd_mh4000_V2-S5_5.py",
+      "status": "PASS",
+      "classification": "integer_coefficients_plus_floating_log_comparisons",
+      "exit_code": 0,
+      "elapsed_s": 7.864,
+      "log": "logs\\replay\\threshold_mh4000_26.log"
+    }
+  ],
+  "execution_folder": "<LOCAL_WORKSPACE>\\output\\v1_1_0_validation\\20261115_191229_495190_all_3c0b04"
+}

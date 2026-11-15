@@ -1,0 +1,195 @@
+{
+  "method": "Independent numerical/algebraic spot checks, not complete formal verification",
+  "python": "3.14.3",
+  "mpmath": "1.3.0",
+  "suite_count": 37,
+  "pass_count": 37,
+  "fail_count": 0,
+  "tests": [
+    {
+      "name": "A.2 modular logA beta=0.4",
+      "status": "PASS",
+      "details": "4.421718e-75"
+    },
+    {
+      "name": "A.2 F1 derivative beta=0.4",
+      "status": "PASS",
+      "details": "1.03634e-76"
+    },
+    {
+      "name": "A.2 modular logA beta=0.9",
+      "status": "PASS",
+      "details": "0.0"
+    },
+    {
+      "name": "A.2 F1 derivative beta=0.9",
+      "status": "PASS",
+      "details": "1.381787e-76"
+    },
+    {
+      "name": "A.2 modular logA beta=2",
+      "status": "PASS",
+      "details": "5.527148e-76"
+    },
+    {
+      "name": "A.2 F1 derivative beta=2",
+      "status": "PASS",
+      "details": "1.381787e-76"
+    },
+    {
+      "name": "A.2 modular logA beta=4",
+      "status": "PASS",
+      "details": "0.0"
+    },
+    {
+      "name": "A.2 F1 derivative beta=4",
+      "status": "PASS",
+      "details": "0.0"
+    },
+    {
+      "name": "A.2 modular logA beta=5",
+      "status": "PASS",
+      "details": "3.454467e-77"
+    },
+    {
+      "name": "A.2 F1 derivative beta=5",
+      "status": "PASS",
+      "details": "0.0"
+    },
+    {
+      "name": "A.2 modular logA beta=8",
+      "status": "PASS",
+      "details": "3.540829e-76"
+    },
+    {
+      "name": "A.2 F1 derivative beta=8",
+      "status": "PASS",
+      "details": "2.763574e-76"
+    },
+    {
+      "name": "6.4 sector envelope m=2, beta=1",
+      "status": "PASS",
+      "details": "max excess -8.88e-07"
+    },
+    {
+      "name": "6.4 sector envelope m=2, beta=2",
+      "status": "PASS",
+      "details": "max excess -0.00899"
+    },
+    {
+      "name": "6.4 sector envelope m=2, beta=4",
+      "status": "PASS",
+      "details": "max excess -0.384"
+    },
+    {
+      "name": "6.4 sector envelope m=2, beta=5",
+      "status": "PASS",
+      "details": "max excess -0.156"
+    },
+    {
+      "name": "6.4 sector envelope m=2, beta=7",
+      "status": "PASS",
+      "details": "max excess -0.0161"
+    },
+    {
+      "name": "6.4 sector envelope m=5, beta=1",
+      "status": "PASS",
+      "details": "max excess -7.1e-07"
+    },
+    {
+      "name": "6.4 sector envelope m=5, beta=2",
+      "status": "PASS",
+      "details": "max excess -0.00719"
+    },
+    {
+      "name": "6.4 sector envelope m=5, beta=4",
+      "status": "PASS",
+      "details": "max excess -0.244"
+    },
+    {
+      "name": "6.4 sector envelope m=5, beta=5",
+      "status": "PASS",
+      "details": "max excess -0.156"
+    },
+    {
+      "name": "6.4 sector envelope m=5, beta=7",
+      "status": "PASS",
+      "details": "max excess -0.0161"
+    },
+    {
+      "name": "6.4 sector envelope m=11, beta=1",
+      "status": "PASS",
+      "details": "max excess -6.46e-07"
+    },
+    {
+      "name": "6.4 sector envelope m=11, beta=2",
+      "status": "PASS",
+      "details": "max excess -0.00654"
+    },
+    {
+      "name": "6.4 sector envelope m=11, beta=4",
+      "status": "PASS",
+      "details": "max excess -0.141"
+    },
+    {
+      "name": "6.4 sector envelope m=11, beta=5",
+      "status": "PASS",
+      "details": "max excess -0.0997"
+    },
+    {
+      "name": "6.4 sector envelope m=11, beta=7",
+      "status": "PASS",
+      "details": "max excess -0.0161"
+    },
+    {
+      "name": "A.4 ten rational-box evaluations (numeric)",
+      "status": "PASS",
+      "details": "largest=-0.16184409058565"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=2",
+      "status": "PASS",
+      "details": "-0.09657359"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=3",
+      "status": "PASS",
+      "details": "-0.087973274"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=5",
+      "status": "PASS",
+      "details": "-0.052103404"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=10",
+      "status": "PASS",
+      "details": "-0.019957323"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=30",
+      "status": "PASS",
+      "details": "-0.0034381606"
+    },
+    {
+      "name": "6.13 tolerance monotonic lambda=100",
+      "status": "PASS",
+      "details": "-0.00042983174"
+    },
+    {
+      "name": "4.4 finite-length threshold delta=0.1",
+      "status": "PASS",
+      "details": "m=1930"
+    },
+    {
+      "name": "4.4 finite-length threshold delta=1.0",
+      "status": "PASS",
+      "details": "m=30"
+    },
+    {
+      "name": "4.4 finite-length threshold delta=4.0",
+      "status": "PASS",
+      "details": "m=12"
+    }
+  ]
+}

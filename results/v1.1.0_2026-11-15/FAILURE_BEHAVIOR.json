@@ -1,0 +1,27 @@
+{
+  "missing_dependencies": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "PASS": true
+  },
+  "timeout": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "PASS": true
+  },
+  "altered_source": {
+    "exit_code": 3,
+    "expected_exit_code": 3,
+    "PASS": true
+  },
+  "optimization_rejected": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "PASS": true
+  },
+  "protected_output_rejected": {
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "PASS": true
+  }
+}

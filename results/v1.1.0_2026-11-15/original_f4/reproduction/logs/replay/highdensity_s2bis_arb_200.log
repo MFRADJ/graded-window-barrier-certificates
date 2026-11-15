@@ -1,0 +1,46 @@
+== Lemme 2.1 : constantes de y, y', y''
+PASS 19.7 < c=2pi^2 < 20
+PASS e^{-c} < 3e-9
+PASS y' <= c e^{-c} < 6e-8
+PASS |y''| <= c^2 e^{-c} < 1.32e-6  (non controle par le script du dossier)
+PASS c/4 > 1 (monotonie de beta^{-j} e^{-c/beta} sur (0,1], j<=4)
+PASS c > 2 (|c^2/b^4 - 2c/b^3| <= c^2/b^4 sur (0,1])
+PASS |A(z^2)| <= 1.68 sur |z|=1/16
+PASS |B(z^2)| <= 0.52 sur |z|=1/16
+PASS |F|,|G| < 4 sur |z|=1/16
+== Lemme 2.1 : borne globale A < e^{a/beta}
+PASS e^{-pi} < 1/23
+PASS e^{-2pi} < 1/500
+PASS majorant de A(e^{-2pi}) < 1.08 (valeur [1.06844 +/- 2.63e-6])
+PASS majorant de B(e^{-2pi}) < 0.36 (valeur [0.350937 +/- 6.98e-8])
+PASS F(e^{-pi}) < 2.2 < 2 e^{1/6}  (2e^{1/6} non controle par le script du dossier)
+PASS 0.08 * 2pi < a
+== Proposition 3.2
+PASS phi(1)/m <= a + 1/6 + eps + 2 sqrt(2a+2eps) < 14.01 (valeur [14.001756 +/- 4.77e-7])
+PASS 1 + 2eps/ln2 < 1.001
+PASS (1/3+2eps) sqrt(a)/ln2 < 1.24
+PASS c1 = sqrt(2a+2eps) a^{-1/4} < 2.27 (valeur [2.26501 +/- 1.55e-6])
+PASS 6 c1 / ln2 < 20 (avec la valeur vraie de c1 : [19.6063 +/- 2.56e-5])
+PASS log2(4/3) <= 1
+PASS 1.001 + 1.24/sqrt(15) < 4/3
+PASS kappa sqrt(15) < 29 (valeur [28.6652 +/- 3.76e-5])
+PASS kappa = (pi/ln2) sqrt(8/3)
+== Corollaire 4.2 / theoreme 4.4
+PASS 20 * 2^{1/4} <= 24  (absorption dans e1, non ecrite dans la preuve)
+PASS (2/3 + 1/sqrt2)/kappa < 0.19 (valeur [0.185612 +/- 1.24e-7])
+PASS (12 + 1/2)/kappa < 1.7 (valeur [1.68889 +/- 5.02e-7])
+PASS log2(1+x) <= 4 x^{1/4} : 4 * 3^{-3/4} * ln2 > 1
+== Forme explicite de la saturation (texte corrige T6)
+PASS (1 + 4 sqrt2/3)/kappa < 0.4 (valeur [0.389879 +/- 2.07e-7])
+PASS 26 sqrt2/kappa < 5 (valeur [4.96798 +/- 3.10e-6])
+PASS h>=15m et mh>=4000 => e2/(kappa sqrt(mh)) <= 1/2 (majorant [0.488237 +/- 3.80e-7])
+
+== Controle numerique (non probant) des quantites modulaires, mpmath 60 chiffres
+identites modulaires : ecart relatif max = 3.24e-57
+PASS identites modulaires (numerique, 60 chiffres)
+max sur beta in [0.1,1] : |g|=6.42e-8, |g'|=1.27e-6, |g''|=2.25e-5, |r|=8.56e-8, |r'|=1.69e-6, |r''|=3.0e-5
+PASS signes g,g' >= 0, r,r' <= 0 et toutes bornes < 1e-4 (numerique)
+min de a/beta - log A(e^-beta) sur beta in [0.02,1000] : 0.0065797
+PASS A(e^{-beta}) < e^{a/beta} sur la grille (numerique)
+
+VERDICT : 34/34 PASS

@@ -1,0 +1,137 @@
+{
+  "mode": "all",
+  "all_pass": false,
+  "expected": 14,
+  "observed": 14,
+  "status_count": {
+    "PASS": 6,
+    "SKIPPED": 8,
+    "FAIL": 0,
+    "MISSING": 0,
+    "TIMEOUT": 0
+  },
+  "python": "3.13.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "flint_installed": false,
+  "mpmath_installed": true,
+  "original_lanes": {
+    "fixed_density": "4 original scripts included unchanged",
+    "high_density": "separate scripts included"
+  },
+  "source_original_files_modified": false,
+  "github_modified": false,
+  "note": "PASS is a script result, NOT human proof validation; SKIPPED is never counted as PASS",
+  "results": [
+    {
+      "name": "fixed_iv_3regimes",
+      "source": "certificates/fixed_density/certify_mpmath_iv_crosscheck.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 1.093,
+      "log": "logs/replay/fixed_iv_3regimes.log"
+    },
+    {
+      "name": "fixed_interval_table",
+      "source": "certificates/fixed_density/regenerate_interval_table.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 1.138,
+      "log": "logs/replay/fixed_interval_table.log"
+    },
+    {
+      "name": "fixed_series_exact",
+      "source": "certificates/fixed_density/series_exact.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 6.514,
+      "log": "logs/replay/fixed_series_exact.log"
+    },
+    {
+      "name": "highdensity_iv_32",
+      "source": "certificates/high_density/certify_highdensity_mpmath_iv_S5_4.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 0.933,
+      "log": "logs/replay/highdensity_iv_32.log"
+    },
+    {
+      "name": "highdensity_15_small",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_independent.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 1.201,
+      "log": "logs/replay/highdensity_15_small.log"
+    },
+    {
+      "name": "highdensity_m20_h300",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_threshold.py",
+      "status": "PASS",
+      "classification": "test_or_numeric_premise",
+      "exit_code": 0,
+      "elapsed_s": 1.245,
+      "log": "logs/replay/highdensity_m20_h300.log"
+    },
+    {
+      "name": "fixed_density_arb_256",
+      "source": "certificates/fixed_density/certify_arb_independent.py",
+      "status": "SKIPPED",
+      "classification": "test_or_numeric_premise",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "highdensity_s2bis_arb_200",
+      "source": "certificates/high_density/certify_constants_arb_V2-S2-bis.py",
+      "status": "SKIPPED",
+      "classification": "mixed_31_Arb_3_numeric",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "highdensity_s4_arb_256",
+      "source": "certificates/review/certify_constants_V2-S4.py",
+      "status": "SKIPPED",
+      "classification": "test_or_numeric_premise",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "highdensity_chainrule_arb_256",
+      "source": "certificates/review/arb_chain_rule_C1_V2-S5_5.py",
+      "status": "SKIPPED",
+      "classification": "test_or_numeric_premise",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "s2_old_full_audit",
+      "source": "certificates/high_density/verify_v2s2.py",
+      "status": "SKIPPED",
+      "classification": "test_or_numeric_premise",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "s4_exact_6118_reviewer",
+      "source": "certificates/review/audit_exact_V2-S4.py",
+      "status": "SKIPPED",
+      "classification": "integer_coefficients_plus_floating_log_comparisons",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "s4_large_m",
+      "source": "certificates/review/audit_large_m_V2-S4.py",
+      "status": "SKIPPED",
+      "classification": "test_or_numeric_premise",
+      "reason": "missing dependency flint"
+    },
+    {
+      "name": "threshold_mh4000_26",
+      "source": "certificates/review/exact_hd_mh4000_V2-S5_5.py",
+      "status": "SKIPPED",
+      "classification": "integer_coefficients_plus_floating_log_comparisons",
+      "reason": "missing dependency flint"
+    }
+  ],
+  "execution_folder": "/mnt/data/ETH_F5_EXECUTIONS/20261115_185049_088346_all_0d7489"
+}

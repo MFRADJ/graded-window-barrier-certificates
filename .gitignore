@@ -28,6 +28,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+results/local_runs/
+*.zip
+!results/v1.1.0_2026-11-15/**/*.log
+
 # Certificate software only; manuscript files are distributed separately.
 manuscript/
 manuscrit/

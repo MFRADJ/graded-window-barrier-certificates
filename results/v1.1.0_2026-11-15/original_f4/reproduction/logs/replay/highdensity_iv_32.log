@@ -1,0 +1,35 @@
+PASS 19.7 < 2*pi^2 < 20
+PASS exp(-c) < 3e-9
+PASS c exp(-c) < 6e-8
+PASS c^2 exp(-c) < 1.32e-6
+PASS c > 4
+PASS c > 2
+PASS bound A on Cauchy circle < 1.68
+PASS bound B on Cauchy circle < 0.52
+PASS bound F and G < 4
+PASS exp(-pi) < 1/23
+PASS exp(-2pi) < 1/500
+PASS A(exp(-2pi)) bound < 1.08
+PASS B(exp(-2pi)) bound < 0.36
+PASS F at exp(-pi) < 2.2
+PASS 2.2 < 2 exp(1/6)
+PASS 0.08*2*pi < a
+PASS Gibbs mu(1)+2sigma(1) bound < 14.01
+PASS 1+2eps/ln2 <1.001
+PASS (1/3+2eps)sqrt(a)/ln2 <1.24
+PASS c1<2.27
+PASS 6 c1/ln2<20
+PASS log2(4/3)<1
+PASS 1.001 +1.24/sqrt15<4/3
+PASS kappa sqrt15<29
+PASS 20*2^(1/4)<24
+PASS (2/3 +1/sqrt2)/kappa<0.19
+PASS 12.5/kappa<1.7
+PASS 4*3^(-3/4)*ln2>1
+PASS (1+4sqrt2/3)/kappa<0.4
+PASS 26sqrt2/kappa<5
+PASS b condition<0.5
+PASS stronger S4-only b condition<0.49
+==> V2-S5.4 HIGH-DENSITY DECIMAL PREMISES: 32/32 INTERVAL CHECKS PASSED
+IMPORTANT: This is new mpmath.iv verification, not a rerun of S2-bis Arb.
+Precision: 80 decimal digits; mpmath: 1.3.0

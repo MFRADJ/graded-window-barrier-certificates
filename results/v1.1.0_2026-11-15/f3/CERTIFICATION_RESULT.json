@@ -1,0 +1,40 @@
+{
+  "software_version": "1.1.0",
+  "mode": "f3",
+  "runner_sha256": "eadc07deb996135212393d2fac4484a928499c5da6270cedcf418bb03e604421",
+  "input_manifest_sha256": "c4b623110a1900e8aa175d6542e2cfff54f629d49a3900a6a056958159f25bac",
+  "started_utc": "20261115T192255_527012Z",
+  "finished_utc": "2026-11-15T19:22:55.887572+00:00",
+  "environment": {
+    "python": "3.14.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0",
+    "mpmath": "1.3.0"
+  },
+  "expected": 1,
+  "observed": 1,
+  "all_pass": true,
+  "status_count": {
+    "PASS": 1,
+    "SKIPPED": 0,
+    "FAIL": 0,
+    "MISSING": 0,
+    "TIMEOUT": 0
+  },
+  "note": "PASS means successful script execution, not human review or a complete formal proof. SKIPPED is never PASS.",
+  "results": [
+    {
+      "name": "f3_auxiliary_37",
+      "source": "tests/F3_CONTROLES_INDEPENDANTS.py",
+      "source_sha256": "3c5d7c65140bbf5cc4c03e564ba0918c782422984952237fa16bdfc728472809",
+      "method": "auxiliary_numeric_spot_checks",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.315,
+      "log": "logs/f3_auxiliary_37.log",
+      "log_sha256": "221407592ed11eef0147e44586df1cd78dd4c382660b35b6cfb15b9ef0f98ad2",
+      "auxiliary_checks": 37
+    }
+  ]
+}

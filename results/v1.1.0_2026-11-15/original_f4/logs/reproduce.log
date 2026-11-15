@@ -1,0 +1,20 @@
+CMD: <PYTHON> reproduce.py --mode all --timeout 3600
+CWD: <LOCAL_WORKSPACE>\output\v1_1_0_validation\20261115_191229_495190_all_3c0b04\reproduction
+fixed_iv_3regimes PASS (0.325 s)
+fixed_interval_table PASS (0.387 s)
+fixed_series_exact PASS (6.434 s)
+highdensity_iv_32 PASS (0.095 s)
+highdensity_15_small PASS (0.223 s)
+highdensity_m20_h300 PASS (0.465 s)
+fixed_density_arb_256 PASS (0.136 s)
+highdensity_s2bis_arb_200 PASS (0.824 s)
+highdensity_s4_arb_256 PASS (0.096 s)
+highdensity_chainrule_arb_256 PASS (0.088 s)
+s2_old_full_audit PASS (43.973 s)
+s4_exact_6118_reviewer PASS (4.595 s)
+s4_large_m PASS (69.558 s)
+threshold_mh4000_26 PASS (7.864 s)
+SUMMARY: {'PASS': 14, 'SKIPPED': 0, 'FAIL': 0, 'TIMEOUT': 0, 'MISSING': 0}
+STATUS: metadata\REPRODUCTION_STATUS_all.json
+
+EXIT CODE: 0

@@ -1,0 +1,184 @@
+{
+  "software_version": "1.1.0",
+  "mode": "all",
+  "runner_sha256": "eadc07deb996135212393d2fac4484a928499c5da6270cedcf418bb03e604421",
+  "input_manifest_sha256": "c4b623110a1900e8aa175d6542e2cfff54f629d49a3900a6a056958159f25bac",
+  "started_utc": "20261115T192245_235600Z",
+  "finished_utc": "2026-11-15T19:25:16.702076+00:00",
+  "environment": {
+    "python": "3.14.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_flint": "0.9.0",
+    "flint": "3.6.0",
+    "mpmath": "1.3.0"
+  },
+  "expected": 14,
+  "observed": 14,
+  "all_pass": true,
+  "status_count": {
+    "PASS": 14,
+    "SKIPPED": 0,
+    "FAIL": 0,
+    "MISSING": 0,
+    "TIMEOUT": 0
+  },
+  "note": "PASS means successful script execution, not human review or a complete formal proof. SKIPPED is never PASS.",
+  "results": [
+    {
+      "name": "fixed_iv_3regimes",
+      "source": "supplement/certify_mpmath_iv_crosscheck.py",
+      "source_sha256": "a222dda24190f46bbb2009805bfe6cf82b258b8a7ed32525bc67836d5c3e925e",
+      "method": "interval",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.323,
+      "log": "logs/fixed_iv_3regimes.log",
+      "log_sha256": "c7c1216f55440d98add0aa107fde22fd3cc05c79dd9b96dd5fb6adb0f9273249"
+    },
+    {
+      "name": "fixed_interval_table",
+      "source": "supplement/regenerate_interval_table.py",
+      "source_sha256": "f48ebc0acdc15a0bc6d35fd6615bdaf8b9b1a483b98ac2a0cc16f5d8435330a5",
+      "method": "interval",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.402,
+      "log": "logs/fixed_interval_table.log",
+      "log_sha256": "e20187f4ce64ddcf69098b47e5d858711b453ce5606bbc0fd5bf78d646045abc"
+    },
+    {
+      "name": "fixed_series_exact",
+      "source": "supplement/series_exact.py",
+      "source_sha256": "8e95f2a288da3cbc4acda10e307139f600f3524e67205a15f924b3560caa0383",
+      "method": "exact_integer",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 6.144,
+      "log": "logs/fixed_series_exact.log",
+      "log_sha256": "16ce0b809d3d2a6521b244c91ed0f8281aa7860ab8cad0d08cedcb91d034f0e9"
+    },
+    {
+      "name": "highdensity_iv_32",
+      "source": "certificates/high_density/certify_highdensity_mpmath_iv_S5_4.py",
+      "source_sha256": "dc546ffd6cd7e01f31c925550cb5c8cf91f4a224b4bb6b8a31351f7df04a6fd7",
+      "method": "interval",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.106,
+      "log": "logs/highdensity_iv_32.log",
+      "log_sha256": "9910f6fdf7f88da3aa23b3e3b85892702a9112112a7e673efe45c55c6d1cd0c8"
+    },
+    {
+      "name": "highdensity_15_small",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_independent.py",
+      "source_sha256": "d0a47230c275f592106f47a20d9918376a5a3594fa34d019bdde0c5c169373d5",
+      "method": "integer_coefficients_plus_floating_comparisons_small_cases",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.253,
+      "log": "logs/highdensity_15_small.log",
+      "log_sha256": "461f161f197764548a790e49b89562be89b60ce5ec092da435109ee182dd7cce",
+      "raw_log_sha256": "f3d89d8e2e65a06527e7fec30ee80bb01361730431d58edfdca1510f30e84287",
+      "local_path_prefix_redacted": true
+    },
+    {
+      "name": "highdensity_m20_h300",
+      "source": "tests/ETH_alphaC_V2-S5_2_check_threshold.py",
+      "source_sha256": "6893c740c940af8e9cac8282e1da23ad58f6b258598a7dae95a9e6ce0218ea83",
+      "method": "integer_coefficients_plus_floating_comparisons",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.492,
+      "log": "logs/highdensity_m20_h300.log",
+      "log_sha256": "2af17625cad3d33f6474460e6b9957444820a09207bcd7f3f1c092b5d873b9ba"
+    },
+    {
+      "name": "fixed_density_arb_256",
+      "source": "certify_arb_independent.py",
+      "source_sha256": "9c257642fb5d2fcda9566786937bd15dfe81c14ef7e187e1342b4cbd636c1606",
+      "method": "Arb",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.14,
+      "log": "logs/fixed_density_arb_256.log",
+      "log_sha256": "3d39766f739efb7d10d9193e0661d095edb48ecb123a1a5cf6895898cb5893b0"
+    },
+    {
+      "name": "highdensity_s2bis_arb_200",
+      "source": "certificates/high_density/certify_constants_arb_V2-S2-bis.py",
+      "source_sha256": "7b9b09086caeb90624d8017a45bfae49a17b361619a6d3c3e86cec56c1a5d783",
+      "method": "mixed_31_Arb_3_numeric",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.916,
+      "log": "logs/highdensity_s2bis_arb_200.log",
+      "log_sha256": "5f4e449582731d82c6fa44d1e483a757de05030b61930653f8d287f1795644e4"
+    },
+    {
+      "name": "highdensity_s4_arb_256",
+      "source": "certificates/review/certify_constants_V2-S4.py",
+      "source_sha256": "738d201afc82b8c87bbfdc779dc169d9cd23e597d5b6d25515dd8dcff077717b",
+      "method": "Arb",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.113,
+      "log": "logs/highdensity_s4_arb_256.log",
+      "log_sha256": "19e16be946684d5fe1e1dfd46443179e5f84ea385b57d8a24949b7b392f47e93"
+    },
+    {
+      "name": "highdensity_chainrule_arb_256",
+      "source": "certificates/review/arb_chain_rule_C1_V2-S5_5.py",
+      "source_sha256": "21d6662adc6442069f779c87bd4f6842e45e4c1c893ffdd0467f77eaca293c46",
+      "method": "Arb",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 0.11,
+      "log": "logs/highdensity_chainrule_arb_256.log",
+      "log_sha256": "b0360ba8eb12dd684af191db7fc2151802ac90920d955a9ee0c4b451e5326fd3"
+    },
+    {
+      "name": "s2_old_full_audit",
+      "source": "certificates/high_density/verify_v2s2.py",
+      "source_sha256": "94a69e67948cac7c74759218e6eee68d3476625c8916cfb358a273c979b7d96c",
+      "method": "historical_computational_audit",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 54.14,
+      "log": "logs/s2_old_full_audit.log",
+      "log_sha256": "641c31e0c52b61073309c9f093636c8f7109459f554d617ac05ef45f4aa5c5bd"
+    },
+    {
+      "name": "s4_exact_6118_reviewer",
+      "source": "certificates/review/audit_exact_V2-S4.py",
+      "source_sha256": "3fe0cea63fad252f9b97e5fc8e52307edaa988ec1df67b86b0e877418076fd20",
+      "method": "integer_coefficients_plus_floating_log_comparisons",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 4.659,
+      "log": "logs/s4_exact_6118_reviewer.log",
+      "log_sha256": "7abb32de222a1ebbf73f69aa185e6da3da27c8ce95e4f9632a547b92291ea337"
+    },
+    {
+      "name": "s4_large_m",
+      "source": "certificates/review/audit_large_m_V2-S4.py",
+      "source_sha256": "158a90b2df30d5bc85c447a32a17cf3dd623f4eefab381b595f4eee3bb235d8c",
+      "method": "large_m_numeric_audit",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 75.268,
+      "log": "logs/s4_large_m.log",
+      "log_sha256": "f3cb83415ea61aa81d317eec4b3775993d6d8bab521d5bb42cb2e85104f1ec9c"
+    },
+    {
+      "name": "threshold_mh4000_26",
+      "source": "certificates/review/exact_hd_mh4000_V2-S5_5.py",
+      "source_sha256": "be36e2ea183a51844cf15c707e542f3e102e3d2538ecb641b1b09e5e294682bb",
+      "method": "integer_coefficients_plus_floating_log_comparisons",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_s": 8.336,
+      "log": "logs/threshold_mh4000_26.log",
+      "log_sha256": "dc7bde088386508243bd7020b0f6e26f46a0bb6857ac7a1900a707571d0b599c"
+    }
+  ]
+}

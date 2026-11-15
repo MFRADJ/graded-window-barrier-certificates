@@ -1,0 +1,7 @@
+Arb Appendix A certificate: (0,4] / [4,5] / [5,infty)
+Precision: 256 bits; library: python-flint (Arb)
+Majorants at q0=e^-1: GA = [11048.0677988 +/- 1.46e-8], GC = [18215.1843800 +/- 4.28e-8], GP = [27143.5132117 +/- 2.10e-8]
+(a) R(pi^2) = [10.2925020821 +/- 2.30e-11] < 4pi^2/3 = [13.1594725348 +/- 1.42e-11] : True
+(b) [4,5], 10 boxes, bound (A.3): all < 0 : True ; largest upper endpoint: [-0.161844090586 +/- 3.53e-13]
+(c) lhs = [89.1622960952 +/- 4.57e-12] > rhs = [46.2244277249 +/- 2.77e-11]; margin [42.9378683703 +/- 3.23e-11]: True
+==> APPENDIX A: CERTIFIED

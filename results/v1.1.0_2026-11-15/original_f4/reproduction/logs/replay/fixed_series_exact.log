@@ -1,0 +1,15 @@
+Jacobi quartic theta3^4 = theta2^4 + theta4^4 for exponents < 200: True
+A only integer powers of q : True
+B only half-odd powers     : True
+A first coeffs: [1, 28, 134, 568, 1809, 5316]
+C first coeffs: [8, 64, 288, 1024, 3152, 8704]
+A and C coefficients are exact integers: True
+A first coefficients match: True
+C first coefficients match: True
+A-1 >= 0 and C >= 0 up to q^199: True
+Psi first coeffs (half-steps): [1, 24, 28, 192, 134, 864, 568, 3072]
+Psi coefficients are nonnegative integers: True
+A+3B == Psi : True
+Triple product theta3: True
+Triple product theta4: True
+==> EXACT SERIES CHECKS: PASS

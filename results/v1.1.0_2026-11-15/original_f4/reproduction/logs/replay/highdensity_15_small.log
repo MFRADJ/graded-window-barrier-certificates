@@ -1,0 +1,17 @@
+RESULT: PASS (small exact tests; real inequalities evaluated in float) cases= 15 kappa= 7.401313118670015
+{'m': 1, 'k': 0, 'h': 15.0, 'lambda_h': 23, 'rho': 0.78307974, 't_star': 0.0, 'min_sector_margin': 37.50595, 'margin_lower': 0.988856, 'code': 'vacuum'}
+{'m': 1, 'k': 1, 'h': 15.0, 'lambda_h': 23, 'rho': 0.80142213, 't_star': 0.0, 'min_sector_margin': 37.04085, 'margin_lower': 1.007199, 'code': 'lagrangian'}
+{'m': 1, 'k': 1, 'h': 15.5, 'lambda_h': 23, 'rho': 0.81571311, 't_star': 0.0, 'min_sector_margin': 37.35609, 'margin_lower': 1.01364, 'code': 'lagrangian'}
+{'m': 1, 'k': 0, 'h': 18.0, 'lambda_h': 25, 'rho': 0.7961536, 't_star': 0.0, 'min_sector_margin': 39.2525, 'margin_lower': 0.959166, 'code': 'vacuum'}
+{'m': 1, 'k': 1, 'h': 18.0, 'lambda_h': 25, 'rho': 0.81328123, 't_star': 0.0, 'min_sector_margin': 38.82695, 'margin_lower': 0.976294, 'code': 'lagrangian'}
+{'m': 2, 'k': 0, 'h': 30.0, 'lambda_h': 50, 'rho': 0.7494744, 't_star': 0.0, 'min_sector_margin': 53.48459, 'margin_lower': 0.702242, 'code': 'vacuum'}
+{'m': 2, 'k': 2, 'h': 30.0, 'lambda_h': 51, 'rho': 0.75283902, 't_star': 0.0, 'min_sector_margin': 53.01183, 'margin_lower': 0.705607, 'code': 'lagrangian'}
+{'m': 2, 'k': 2, 'h': 30.5, 'lambda_h': 51, 'rho': 0.75938187, 't_star': 0.0, 'min_sector_margin': 53.23931, 'margin_lower': 0.709227, 'code': 'lagrangian'}
+{'m': 2, 'k': 0, 'h': 36.0, 'lambda_h': 55, 'rho': 0.7510207, 't_star': 0.0, 'min_sector_margin': 56.00483, 'margin_lower': 0.672298, 'code': 'vacuum'}
+{'m': 2, 'k': 2, 'h': 36.0, 'lambda_h': 56, 'rho': 0.7541725, 't_star': 0.0, 'min_sector_margin': 55.57296, 'margin_lower': 0.67545, 'code': 'lagrangian'}
+{'m': 3, 'k': 0, 'h': 45.0, 'lambda_h': 77, 'rho': 0.74078457, 't_star': 0.0, 'min_sector_margin': 65.87633, 'margin_lower': 0.581466, 'code': 'vacuum'}
+{'m': 3, 'k': 3, 'h': 45.0, 'lambda_h': 79, 'rho': 0.74001537, 't_star': 0.0, 'min_sector_margin': 65.40101, 'margin_lower': 0.580696, 'code': 'lagrangian'}
+{'m': 3, 'k': 3, 'h': 45.5, 'lambda_h': 80, 'rho': 0.73495729, 't_star': 0.0, 'min_sector_margin': 65.58849, 'margin_lower': 0.573992, 'code': 'lagrangian'}
+{'m': 3, 'k': 0, 'h': 54.0, 'lambda_h': 85, 'rho': 0.7389685, 't_star': 0.0, 'min_sector_margin': 68.99374, 'margin_lower': 0.553153, 'code': 'vacuum'}
+{'m': 3, 'k': 3, 'h': 54.0, 'lambda_h': 87, 'rho': 0.73838646, 't_star': 0.0, 'min_sector_margin': 68.55977, 'margin_lower': 0.552571, 'code': 'lagrangian'}
+WROTE: <LOCAL_WORKSPACE>\output\v1_1_0_validation\20261115_191229_495190_all_3c0b04\reproduction\tests\ETH_alphaC_V2-S5_2_checks.json

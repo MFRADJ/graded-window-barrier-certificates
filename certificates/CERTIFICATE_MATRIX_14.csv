@@ -1,0 +1,15 @@
+group,test_id,script,required_module,theorem_or_role,methodology,sha256_script
+STANDARD,fixed_iv_3regimes,supplement/certify_mpmath_iv_crosscheck.py,mpmath,6.5 (A.2–A.5),arithmétique d’intervalles mpmath.iv,a222dda24190f46bbb2009805bfe6cf82b258b8a7ed32525bc67836d5c3e925e
+STANDARD,fixed_interval_table,supplement/regenerate_interval_table.py,mpmath,6.5 (A.4),intervalles mpmath.iv + table,f48ebc0acdc15a0bc6d35fd6615bdaf8b9b1a483b98ac2a0cc16f5d8435330a5
+STANDARD,fixed_series_exact,supplement/series_exact.py,(stdlib),6.5 (développements des caractères),coefficients entiers exacts,8e95f2a288da3cbc4acda10e307139f600f3524e67205a15f924b3560caa0383
+STANDARD,highdensity_iv_32,certificates/high_density/certify_highdensity_mpmath_iv_S5_4.py,mpmath,"7.1 (C.1, bornes modulaires)",intervalles mpmath.iv,dc546ffd6cd7e01f31c925550cb5c8cf91f4a224b4bb6b8a31351f7df04a6fd7
+STANDARD,highdensity_15_small,tests/ETH_alphaC_V2-S5_2_check_independent.py,(stdlib),"7.1 (niveaux et secteurs, petits cas)","coefficients entiers, comparaisons flottantes, petite taille",d0a47230c275f592106f47a20d9918376a5a3594fa34d019bdde0c5c169373d5
+STANDARD,highdensity_m20_h300,tests/ETH_alphaC_V2-S5_2_check_threshold.py,(stdlib),"7.1 (cas m=20,h=300)",coefficients entiers + comparaison numérique,6893c740c940af8e9cac8282e1da23ad58f6b258598a7dae95a9e6ce0218ea83
+ARB,fixed_density_arb_256,certify_arb_independent.py,flint,6.5 (signe global certifié),Arb intervalles certifiants sous réduction analytique,9c257642fb5d2fcda9566786937bd15dfe81c14ef7e187e1342b4cbd636c1606
+ARB,highdensity_s2bis_arb_200,certificates/high_density/certify_constants_arb_V2-S2-bis.py,flint,7.1 (31 contrôles Arb + 3 numériques),"mixte : 31 Arb, 3 tests numériques",7b9b09086caeb90624d8017a45bfae49a17b361619a6d3c3e86cec56c1a5d783
+ARB,highdensity_s4_arb_256,certificates/review/certify_constants_V2-S4.py,flint,"7.1 (constantes, S4)",Arb intervalles certifiants,738d201afc82b8c87bbfdc779dc169d9cd23e597d5b6d25515dd8dcff077717b
+ARB,highdensity_chainrule_arb_256,certificates/review/arb_chain_rule_C1_V2-S5_5.py,flint,7.1 (règle de chaîne),Arb intervalles certifiants,21d6662adc6442069f779c87bd4f6842e45e4c1c893ffdd0467f77eaca293c46
+HEAVY,s2_old_full_audit,certificates/high_density/verify_v2s2.py,flint,7.1 (rejeu ancien audit S2),test calculatoire historique,94a69e67948cac7c74759218e6eee68d3476625c8916cfb358a273c979b7d96c
+HEAVY,s4_exact_6118_reviewer,certificates/review/audit_exact_V2-S4.py,flint,7.1 (6 118 tests exacts/mixtes),coefficients entiers + log flottant,3fe0cea63fad252f9b97e5fc8e52307edaa988ec1df67b86b0e877418076fd20
+HEAVY,s4_large_m,certificates/review/audit_large_m_V2-S4.py,flint,7.1 (tests grands m),test numérique,158a90b2df30d5bc85c447a32a17cf3dd623f4eefab381b595f4eee3bb235d8c
+HEAVY,threshold_mh4000_26,certificates/review/exact_hd_mh4000_V2-S5_5.py,flint,7.1 (26 cas au seuil mh=4000),coefficients entiers + log flottant,be36e2ea183a51844cf15c707e542f3e102e3d2538ecb641b1b09e5e294682bb

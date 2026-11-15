@@ -1,0 +1,15 @@
+suite,statut_F5,methode,cause_ou_journal,phase
+fixed_iv_3regimes,PASS,test_or_numeric_premise,evidence/all/fixed_iv_3regimes.log,STANDARD
+fixed_interval_table,PASS,test_or_numeric_premise,evidence/all/fixed_interval_table.log,STANDARD
+fixed_series_exact,PASS,test_or_numeric_premise,evidence/all/fixed_series_exact.log,STANDARD
+highdensity_iv_32,PASS,test_or_numeric_premise,evidence/all/highdensity_iv_32.log,STANDARD
+highdensity_15_small,PASS,test_or_numeric_premise,evidence/all/highdensity_15_small.log,STANDARD
+highdensity_m20_h300,PASS,test_or_numeric_premise,evidence/all/highdensity_m20_h300.log,STANDARD
+fixed_density_arb_256,SKIPPED,test_or_numeric_premise,missing dependency flint,ARB
+highdensity_s2bis_arb_200,SKIPPED,mixed_31_Arb_3_numeric,missing dependency flint,ARB
+highdensity_s4_arb_256,SKIPPED,test_or_numeric_premise,missing dependency flint,ARB
+highdensity_chainrule_arb_256,SKIPPED,test_or_numeric_premise,missing dependency flint,ARB
+s2_old_full_audit,SKIPPED,test_or_numeric_premise,missing dependency flint,AUDIT LOURD
+s4_exact_6118_reviewer,SKIPPED,integer_coefficients_plus_floating_log_comparisons,missing dependency flint,AUDIT LOURD
+s4_large_m,SKIPPED,test_or_numeric_premise,missing dependency flint,AUDIT LOURD
+threshold_mh4000_26,SKIPPED,integer_coefficients_plus_floating_log_comparisons,missing dependency flint,AUDIT LOURD
