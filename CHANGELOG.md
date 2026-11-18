@@ -1,5 +1,12 @@
 # Changelog
 
+## Certificate-only cleanup — 19 November 2026
+
+- Remove the manuscript directory, PDF/LaTeX files, paper-specific license and paper citation metadata from all published history and software snapshots.
+- Delete the manuscript-specific tag; retain v1.0.0 and v1.1.0 as certificate-only software tags.
+- Replace release archives and checksum files with certificate-only packages, and remove standalone manuscript assets.
+- Preserve all certificate source bytes, dependency pins and mathematical execution records.
+
 ## 1.1.0 — 15 November 2026
 
 - Add the F4/F5 high-density interval programs, Arb constant and chain-rule checks, integer-series audits, and the 14-suite source/method matrix.
